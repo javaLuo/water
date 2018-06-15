@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Waterdrop</title>
+    <link rel="stylesheet" href="libs/css.css" />
+</head>
+<body>
+    <div class="footer"></div>
+    <script src="libs/jquery-3.3.1.min.js"></script>
+    <!--<script src="libs/three-93.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/three.js/92/three.min.js"></script>
+
+    <script src="libs/three/OrbitControls.js"></script> <!-- 相机控制 -->
+    <script src="libs/three/Reflector.js"></script> <!-- 镜面材质 -->
+    <script src="libs/three/CSS2DRenderer.js"></script> <!-- 2D铭牌 -->
+
+    <!-- 后处理相关 -->
+    <script src="libs/three/EffectComposer.js"></script> <!-- 后期效果构建者 -->
+    <script src="libs/three/RenderPass.js"></script> <!-- 后期渲染器 -->
+    <script src="libs/three/ShaderPass.js"></script> <!-- 着色器构造器 抗锯齿着色器需要这个实例化 -->
+
+    <script src="libs/three/CopyShader.js"></script> <!-- 全屏4色着色器 EffectComposer后期处理器依赖 -->
+    <script src="libs/three/FXAAShader.js"></script> <!-- 抗锯齿着色器 必须要，不然后期渲染器什么都渲染不出来-->
+
+    <script src="libs/three/OutlinePass.js"></script> <!-- 外边框后期特效 -->
+    <script src="libs/three/GlitchPass.js"></script> <!-- 屏幕信号抖动后期特效 -->
+    <script src="libs/three/DigitalGlitch.js"></script> <!-- RGB移位着色器 屏幕信号抖动依赖的shader -->
+    <!-- /后处理相关 -->
+
+    <script src="libs/three/THREE.MeshLine.js"></script> <!-- 线条插件 -->
+    <script src="libs/deri.js"></script> <!-- 求导算曲线 -->
+
+    <script src="libs/index.js"></script>
+</body>
+</html>
