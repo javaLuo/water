@@ -1,6 +1,8 @@
 body{
     background-color: #000;
     margin: 0;
+    letter-spacing: 1px;
+    font-family: "ATC Overlook", arial, sans-serif;
 }
 canvas{
     display: block;
@@ -91,6 +93,134 @@ canvas{
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: #000;
+    background-color: rgba(0,0,0, .7);
     z-index: 9;
+}
+.mask{
+    background-color: #222;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    z-index: 12;
+}
+/** 中间信息窗体 **/
+.ship-info-box{
+    position: fixed;
+    top:60%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+    padding: 20px;
+    color: #ccc;
+    font-size: 12px;
+}
+.ship-info-box .ship-type{
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.ship-info-box .ship-type ul{display: block;margin:0;padding:0;transition: all 300ms;}
+.ship-info-box .ship-type ul>li{display: block;height: 20px;line-height: 20px;}
+.ship-info-box .speed{
+    font-size: 12px;
+    color: #00ff00;
+}
+.ship-info-box .speed span{color: #fff;}
+.ship-info-box .btn{position: relative;width: 150px;height:30px;line-height:30px;text-align: center;margin-top: 10px;}
+.ship-info-box .btn .btn-back{transition: all 300ms; position: absolute;top:0;left:0;width: 100%;height: 100%;background-color: rgba(0,0,0,.3);transform: scale(1 ,0);}
+.ship-info-box .btn .btn-word{transition: all 600ms; position: absolute;top:0;left:0;width:100%;height:100%;transform:translateX(15px);color: #ccc;z-index: 2;text-align: center;opacity:0;}
+.ship-info-box .btn .line{z-index: 2;transition: all 300ms;width:10px;height:10px;position: absolute;transform: scale(0,0)}
+.ship-info-box .btn .line1{top:0;left:0;border-top: solid 1px #00ff00;border-left: solid 1px #00ff00;}
+.ship-info-box .btn .line2{bottom:0; right:0;border-bottom: solid 1px #00ff00;border-right: solid 1px #00ff00;}
+.ship-info-box .btn.show{cursor: pointer}
+.ship-info-box .btn.show .btn-back{transform: scale(1,1);}
+.ship-info-box .btn.show .btn-word{transform: translateX(0px);opacity:1;}
+.ship-info-box .btn.show .line{transform: scale(1,1);}
+.ship-info-box .btn:hover .line{
+    width: 30px;
+    height: 15px;
+}
+
+.logo{
+    position: fixed;
+    opacity: .7;
+    top:50vh;
+    left: 50vw;
+    width: 120px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    transition: all 1000ms;
+}
+.logo.show{
+    top: 1vw;
+    left: 1vw;
+    width: 50px;
+    transform: translate(0,0);
+}
+.title-box{
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+.title-box .title{
+    font-size: 36px;
+    perspective:600px;
+    -webkit-perspective:600px;
+    -moz-perspective:600px;
+}
+.title-box .title i{
+    display: inline-block;
+    font-style: normal;
+    opacity: 0;
+   transform: rotateY(90deg);
+    transition: all 5000ms;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+.title-box.show .title i{
+    opacity: 1;
+    transform: rotateY(0);
+}
+.title-box.show .say{
+    opacity: 1;
+    transform: translateX(0);
+}
+.title-box .say{
+    font-size: 12px;
+    color: #888;
+    padding: 20px 0 20px 40px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 2000ms;
+    transition-delay: 2000ms;
+}
+.title-box.show .use{
+    opacity: 1;
+    transform: translateY(0);
+}
+.title-box .say p{
+    padding: 0;
+}
+.title-box .use{
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 2000ms;
+    transition-delay: 2000ms;
+}
+.title-box .use div{
+    height: 1px;
+    background-color: #fff;
+    width: 80px;
+    margin-right: 10px;
 }

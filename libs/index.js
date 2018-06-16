@@ -1,6 +1,8 @@
 /** 页面逻辑相关参数 **/
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
+let animeObj = {shipSpeed: 0};  // 当前速度，加载百分比
+const speedDom = document.getElementById('speed');
 
 /** THREE相关参数 **/
 let scene; // 场景
@@ -422,8 +424,8 @@ function initComposer(){
     outlinePass.edgeStrength = 0; // 0就看不见了
     outlinePass.edgeGlow = 1;
     outlinePass.edgeThickness = 4;
-    // outlinePass.selectedObjects = [water_mesh];
-    composer.addPass( outlinePass );
+    outlinePass.selectedObjects = [water_mesh];
+    // composer.addPass( outlinePass );
 
     /** 后处理 - 抗锯齿 **/
     effectFXAA = new THREE.ShaderPass( THREE.FXAAShader );
@@ -433,9 +435,9 @@ function initComposer(){
 
     /** 后处理 - 屏幕闪动 **/
     glitchPass = new THREE.GlitchPass();
-    // glitchPass.renderToScreen = true;
+    glitchPass.renderToScreen = true;
     glitchPass.goWild = true;
-    composer.addPass( glitchPass );
+    // composer.addPass( glitchPass );
 }
 
 /** 初始化射线相关 **/
@@ -452,7 +454,7 @@ function onMouseMove(e) {
 
 function checkLoading() {
     loadingPercent+=1;
-    console.log('多少了',loadingPercent, loadingCount);
+    speedDom.innerText = (loadingPercent/loadingCount).toFixed(2);
     if(loadingPercent>= loadingCount) {
         init();
     }
@@ -735,12 +737,60 @@ function init(){
     initAppendage(); // 初始化飞船附加物
     initComposer(); // 初始化各后期通道
     initRaycaster(); // 初始化射线
+    initWords(); // 初始化标题文字
     // 浏览器改变事件
     window.addEventListener('resize', onResize, false);
     window.addEventListener('mousemove', onMouseMove, false);
+    labelRenderer.render( scene, camera );
+
     setTimeout(()=> {title2d = $("#title2d");label2d = $("#label2")});
-    animate();
+
+    initShow(); // 开始了
+
+    $("#ship-info-btn").addClass("show"); // s首个按钮出现
+
+
 }
 
+/** 逻辑开始的地方 **/
 initAllTexturesAndImgs(); // 加载所有资源
 
+function initWords() {
+    const $i = $("#title>i");
+
+    $i.each(function(index, dom){
+        dom.style.transitionDelay = Math.floor(Math.random() * 2500 + 500) + "ms";
+    });
+}
+
+// 初始化不同阶段的出现逻辑
+function initShow(){
+    $("#ship-info-btn").on('click', function(){
+        var shipInfoBtn = $(this);
+        if(!shipInfoBtn.hasClass('show')){
+            return;
+        }
+        shipInfoBtn.removeClass('show');
+        const type = Number(shipInfoBtn.data('type'));
+        console.log("变了没有", type);
+        switch(type){
+            case 1: // 第1阶段
+                show1();return;
+            case 2: // 第2阶段 常规航行
+        }
+    });
+};
+// 画面出现
+function show1(){
+    animate();
+    $("#mask").fadeOut(5000, function(){
+        setTimeout(function(){
+            $("#ship-type-ul").css("transform", "translateY(-40px)");
+            $("#ship-info-btn .btn-word").text("起航");
+            $("#ship-info-btn").data("type", 2).addClass("show");
+        }, 3000);
+    });
+    $("#title-box").addClass("show");
+    $("#logo").addClass("show");
+    $("#ship-type-ul").css("transform", "translateY(-20px)");
+}

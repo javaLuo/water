@@ -7,6 +7,37 @@
     <link rel="stylesheet" href="libs/css.css" />
 </head>
 <body>
+    <div id="mask" class="mask"></div> <!-- 背景遮罩 -->
+    <div id="title-box" class="title-box">
+        <div id="title" class="title"><i>T</i><i>H</i><i>R</i><i>E</i><i>E</i><i>&nbsp;</i><i>B</i><i>O</i><i>D</i><i>Y</i><i>S</i><i>&nbsp;</i><i>W</i><i>A</i><i>T</i><i>E</i><i>R</i><i>D</i><i>R</i><i>O</i><i>P</i></div>
+        <div class="say">
+            <p>在太阳引力的作用下，云团停止了膨胀，开始拉长</p>
+            <p>最后变成漫长的条带</p>
+            <p>在无尽的岁月中，它将环绕太阳成为一圈极其稀薄的金属带。</p>
+            <p>就像那百万个不能安息的灵魂一样，永远飘浮在太阳系冷寂的外围空间。<p/>
+        </div>
+        <div class="use"><div></div>《三体》</div>
+    </div> <!-- 巨幅网站标题 -->
+    <img id="logo" class="logo" src="./libs/imgs/logo.png" />
+    <div class="ship-info-box">
+        <div class="ship-type">
+            <ul id="ship-type-ul">
+                <li></li>
+                <li>驶离星区</li>
+                <li>常规推进已准备就绪</li>
+                <li>航行中</li>
+                <li>曲率引擎已准备就绪</li>
+                <li>跃迁中</li>
+            </ul>
+        </div>
+        <div class="speed"><span id="speed">0</span> km/h</div>
+        <div id="ship-info-btn" class="btn" data-type="1">
+            <div class="btn-back"></div>
+            <div class="btn-word">离港</div>
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+        </div>
+    </div>
     <div class="footer"></div>
     <script src="libs/jquery-3.3.1.min.js"></script>
     <!--<script src="libs/three-93.min.js"></script>-->
@@ -32,6 +63,7 @@
     <script src="libs/three/THREE.MeshLine.js"></script> <!-- 线条插件 -->
     <script src="libs/deri.js"></script> <!-- 求导算曲线 -->
 
+    <script src="libs/anime.min.js"></script>
     <script src="libs/index.js"></script>
 </body>
 </html>
