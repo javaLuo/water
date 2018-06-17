@@ -9,7 +9,7 @@
 <body>
     <div id="mask" class="mask"></div> <!-- 背景遮罩 -->
     <div id="title-box" class="title-box">
-        <div id="title" class="title"><i>T</i><i>H</i><i>R</i><i>E</i><i>E</i><i>&nbsp;</i><i>B</i><i>O</i><i>D</i><i>Y</i><i>S</i><i>&nbsp;</i><i>W</i><i>A</i><i>T</i><i>E</i><i>R</i><i>D</i><i>R</i><i>O</i><i>P</i></div>
+        <div id="title" class="title"><i>T</i><i>H</i><i>R</i><i>E</i><i>E</i><i>&nbsp;</i><i>B</i><i>O</i><i>D</i><i>Y</i><i>&nbsp;</i><i>W</i><i>A</i><i>T</i><i>E</i><i>R</i><i>D</i><i>R</i><i>O</i><i>P</i></div>
         <div class="say">
             <p>在太阳引力的作用下，云团停止了膨胀，开始拉长</p>
             <p>最后变成漫长的条带</p>
@@ -22,7 +22,7 @@
     <div class="ship-info-box">
         <div class="ship-type">
             <ul id="ship-type-ul">
-                <li></li>
+                <li>初始化</li>
                 <li>驶离星区</li>
                 <li>常规推进已准备就绪</li>
                 <li>航行中</li>
@@ -33,12 +33,15 @@
         <div class="speed"><span id="speed">0</span> km/h</div>
         <div id="ship-info-btn" class="btn" data-type="1">
             <div class="btn-back"></div>
-            <div class="btn-word">离港</div>
+            <div class="btn-word">启动</div>
             <div class="line line1"></div>
             <div class="line line2"></div>
         </div>
+        <div id="control-remind" class="remind">您现在可以自由移动视角</div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <div class="copyright">copyright © E.T.0 <a href="https://blog.isluo.com" target="_blank">isluo.com</a> 2018</div>
+    </div>
     <script src="libs/jquery-3.3.1.min.js"></script>
     <!--<script src="libs/three-93.min.js"></script>-->
     <script src="https://cdn.bootcss.com/three.js/92/three.min.js"></script>
@@ -63,6 +66,7 @@
     <script src="libs/three/THREE.MeshLine.js"></script> <!-- 线条插件 -->
     <script src="libs/deri.js"></script> <!-- 求导算曲线 -->
 
+    <script src="libs/tween.min.js"></script>
     <script src="libs/anime.min.js"></script>
     <script src="libs/index.js"></script>
 </body>

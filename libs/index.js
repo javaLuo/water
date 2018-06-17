@@ -1,7 +1,12 @@
 /** 页面逻辑相关参数 **/
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
-let animeObj = {shipSpeed: 0};  // 当前速度，加载百分比
+let showType = 0; // 当前在哪个阶段
+let animeObj = {
+    shipSpeed: 100, // 当前飞船速度，加载百分比
+    star_speed: -0.1, // 低速星空速度
+    star_speed2: 10, // 高速星空速度
+};
 const speedDom = document.getElementById('speed');
 
 /** THREE相关参数 **/
@@ -24,6 +29,7 @@ let cloud2; // 低速星空2
 let lineMesh; // 高速星空1
 let lineMesh2; // 高速星空2
 
+let tunnel; // 高速时空隧道
 let tunnel_texture; // 高速时空隧道纹理
 
 let skybox; // 天空盒
@@ -46,6 +52,7 @@ let mouse; // 鼠标位置
 let labelRenderer; // 2D标签渲染器
 let title2d; // 2D标签 - 头部标题
 let label2d; // 2D标签 - 右侧说明
+let outlinePass; // 外边框
 
 /** 初始化三要素 **/
 function init3boss(){
@@ -57,6 +64,7 @@ function init3boss(){
     camera.lookAt(new THREE.Vector3(0,0,0));
     renderer.setSize(window.innerWidth, window.innerHeight, true);
     renderer.setClearColor(0x000000);
+    console.log("看看scene:", scene);
     document.body.appendChild(renderer.domElement);
 }
 
@@ -181,7 +189,7 @@ function initStarSky(){
     });
 
     const geom = new THREE.Geometry();
-    const range = 500; // 横向范围
+    const range = 600; // 横向范围
     const rangex = 2000; // 纵向范围
     for (let i = 0; i < 10000; i++) {
         const particle = new THREE.Vector3(Math.random() * rangex - rangex / 2, Math.random() * range - range / 2, Math.random() * range - range / 2);
@@ -248,12 +256,14 @@ function initTunne(){
         transparent: true,
         alphaMap: tunnel_texture,
         color: 0x3333aa,
+        opacity: 0.01,
     });
 
-    const tunnel = new THREE.Mesh(tunnel_geometry, tunnel_material);
+    tunnel = new THREE.Mesh(tunnel_geometry, tunnel_material);
     tunnel.rotation.z = Math.PI/180 * 90;
     tunnel.position.x = 1200;
     tunnel.visible = false;
+    console.log('TUNNEL:', tunnel);
     scene.add(tunnel);
 }
 
@@ -261,15 +271,20 @@ function initTunne(){
 function initSkyBox(){
     const shader = THREE.ShaderLib["cube"];
     shader.uniforms["tCube"].value = skybox_texture;
+    shader.uniforms["opacity"] = {value: 1};
     const material = new THREE.ShaderMaterial({
         fragmentShader:shader.fragmentShader,
         vertexShader:shader.vertexShader,
         uniforms:shader.uniforms,
+        transparent: false,
         depthWrite:false,
-        side:THREE.BackSide
+        side:THREE.BackSide,
     });
+
     skybox = new THREE.Mesh(new THREE.BoxGeometry(2000,2000,2000),material);
     scene.add(skybox);
+    console.log("SHADER:", shader, skybox);
+
 }
 
 /** 飞船附加物 **/
@@ -421,11 +436,12 @@ function initComposer(){
 
     /** 后处理 - 外边框 **/
     outlinePass = new THREE.OutlinePass( new THREE.Vector2( window.innerWidth, window.innerHeight ), scene, camera );
-    outlinePass.edgeStrength = 0; // 0就看不见了
+    outlinePass.edgeStrength = 0.1; // 0就看不见了
     outlinePass.edgeGlow = 1;
-    outlinePass.edgeThickness = 4;
+    outlinePass.edgeThickness = 3;
+    console.log('是不是没有water_mesh', water_mesh);
     outlinePass.selectedObjects = [water_mesh];
-    // composer.addPass( outlinePass );
+    composer.addPass( outlinePass );
 
     /** 后处理 - 抗锯齿 **/
     effectFXAA = new THREE.ShaderPass( THREE.FXAAShader );
@@ -434,10 +450,11 @@ function initComposer(){
     composer.addPass( effectFXAA );
 
     /** 后处理 - 屏幕闪动 **/
-    glitchPass = new THREE.GlitchPass();
+    glitchPass = new THREE.GlitchPass(1);
     glitchPass.renderToScreen = true;
-    glitchPass.goWild = true;
+    glitchPass.goWild = false;
     // composer.addPass( glitchPass );
+    console.log('后期的：', composer);
 }
 
 /** 初始化射线相关 **/
@@ -454,7 +471,7 @@ function onMouseMove(e) {
 
 function checkLoading() {
     loadingPercent+=1;
-    speedDom.innerText = (loadingPercent/loadingCount).toFixed(2);
+    speedDom.innerText = ((loadingPercent/loadingCount) * 100 ).toFixed(2);
     if(loadingPercent>= loadingCount) {
         init();
     }
@@ -506,11 +523,49 @@ let count = 0;
 let hoverToDo = false; // 选中后，是否已经在执行霓虹灯效果
 let noHoverToDo = false; // 非选中后，是否需要重置霓虹灯状态
 let nowNum = 0; // 当前霓虹灯走到哪一个了
-let star_speed = -0.1; // 低速星空速度
 function animate(){
     requestAnimationFrame(animate);
     animate_basic();
-    animate_rayhover();
+
+    if(showType > 2) { // 第2阶段完毕后才开始射线
+        animate_rayhover();
+    }
+
+    if(showType === 2){
+        TWEEN.update();
+        if(animeObj.star_speed>-3){
+            animeObj.star_speed -= 0.02;
+        }
+    } else if (showType === 3) {
+        if(animeObj.star_speed>-40){ // 初阶段加速
+            animeObj.star_speed -= 0.1;
+            tunnel.material.opacity += 0.001;
+            outlinePass.edgeStrength += 0.005;
+        } else { // 开始特效
+            showType = 4;
+            composer.addPass( glitchPass );
+            skybox.visible = false;
+            cloud.visible = false;
+            cloud2.visible = false;
+            lineMesh.visible = true;
+            lineMesh2.visible = true;
+            tunnel.material.opacity = 1;
+            setTimeout(function(){
+                showType = 5;
+                console.log("进入5");
+               // composer.passes.splice(1);
+                glitchPass.renderToScreen = false;
+            }, 300);
+        }
+        skybox.position.x -= 2;
+        skybox.scale.x += 2;
+    } else if (showType === 5) {
+        if(outlinePass.edgeStrength > 0.05){
+            outlinePass.edgeStrength -= 0.01;
+        } else {
+            showType = 6;
+        }
+    }
 
     if ( count % 2 === 0 ) {
         cubeMeterial.envMap = cubeCamera1.renderTarget.texture;
@@ -521,17 +576,21 @@ function animate(){
     }
     count ++;
     count = count > 1000000 ? 1 : count;
+
     labelRenderer.render( scene, camera );
-    composer.render();
-   // renderer.render(scene, camera);
+    if(showType === 6){
+        renderer.render(scene, camera);
+    } else {
+        composer.render();
+    }
 }
 
 // 基本运动
 function animate_basic(){
     line_group.rotation.x += 0.01;
     dash1_mesh.rotation.x -= 0.01;
-    cloud.position.x += star_speed;
-    cloud2.position.x += star_speed;
+    cloud.position.x += animeObj.star_speed; // 低速星空速度
+    cloud2.position.x += animeObj.star_speed;
     lineMesh.position.x -= 40;
     lineMesh2.position.x -= 40;
     q4_mesh.rotation.x -= 0.04;
@@ -772,25 +831,79 @@ function initShow(){
         }
         shipInfoBtn.removeClass('show');
         const type = Number(shipInfoBtn.data('type'));
-        console.log("变了没有", type);
         switch(type){
             case 1: // 第1阶段
                 show1();return;
             case 2: // 第2阶段 常规航行
+                show2();return;
+            case 3: // 第3阶段 高速航行
+                show3();return;
         }
     });
 };
 // 画面出现
 function show1(){
     animate();
+    showType = 1;
     $("#mask").fadeOut(5000, function(){
         setTimeout(function(){
             $("#ship-type-ul").css("transform", "translateY(-40px)");
             $("#ship-info-btn .btn-word").text("起航");
             $("#ship-info-btn").data("type", 2).addClass("show");
-        }, 3000);
+        }, 4000);
     });
     $("#title-box").addClass("show");
     $("#logo").addClass("show");
     $("#ship-type-ul").css("transform", "translateY(-20px)");
+}
+
+// 常规推进
+function show2() {
+    $("#title-box").removeClass("show");
+    showType = 2;
+    const tween = new TWEEN.Tween({
+        x: camera.position.x,
+        z: camera.position.z,
+    }).to({
+        x: -50,
+        z: -18
+    },4000).easing(TWEEN.Easing.Quadratic.InOut).onUpdate(function(){
+        camera.position.x = this.x;
+        camera.position.z = this.z;
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }).onComplete(function(){
+        $("#control-remind").addClass("show");
+        cameraControls.enabled = true;
+        showType = 2.5; // 表示第2阶段已完毕
+        setTimeout(function(){
+            $("#control-remind").removeClass("show");
+        }, 5000);
+        setTimeout(function(){
+            $("#ship-type-ul").css("transform", "translateY(-80px)");
+            $("#ship-info-btn .btn-word").text("开始星际穿梭");
+            $("#ship-info-btn").data("type", 3).addClass("show");
+        }, 10000);
+    });
+    tween.start();
+    anime({
+        targets: animeObj,
+        shipSpeed: 10000,
+        round: 1,
+        easing: 'linear',
+        duration: 4000,
+        update: function() {
+            speedDom.innerText = animeObj.shipSpeed.toFixed(2)
+        }
+    });
+    setTimeout(function(){
+        $("#ship-type-ul").css("transform", "translateY(-60px)");
+    }, 4000)
+}
+
+// 曲率推进
+function show3(){
+    showType = 3;
+    tunnel.visible = true;
+   // skybox.material.transparent = true;
+   // composer.addPass( outlinePass );
 }
