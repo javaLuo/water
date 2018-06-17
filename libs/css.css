@@ -105,12 +105,48 @@ a:hover{
     z-index: 9;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .footer .copyright{right: 10px;font-size: 12px;color: #666666;margin-right: 10px; }
 .footer .copyright a{color: #666666;}
 .footer .copyright a:hover{color: #87D0F0;}
 
+@keyframes AnimePlay {
+    0% {transform: scale(1, 1)}
+    100% {transform: scale(1, 4)}
+}
+@-webkit-keyframes AnimePlay {
+    0% {transform: scale(1, 1)}
+    100% {transform: scale(1, 4)}
+}
+.animePlay{
+    -webkit-animation-name: AnimePlay;
+    -webkit-animation-duration: 600ms;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: AnimePlay;
+    animation-duration: 600ms;
+    animation-iteration-count: infinite;
+}
+.footer .music{margin-left: 10px;display: flex;align-items: center;height: 100%;}
+.footer .music .play-btn{display: flex;align-items: center;height: 100%;padding: 0 10px;cursor: pointer;transition: all 200ms;}
+.footer .music .play-btn i{display:block;width: 1px;height: 2px;background-color: #ccc;margin-right: 4px;transition: all 200ms;}
+.footer .music .play-btn i:nth-child(2){animation-delay: 50ms;-webkit-animation-delay: 100ms;}
+.footer .music .play-btn i:nth-child(3){animation-delay: 100ms;-webkit-animation-delay: 200ms;}
+.footer .music .play-btn i:nth-child(4){animation-delay: 150ms;-webkit-animation-delay: 300ms;}
+.footer .music .play-btn i:nth-child(5){animation-delay: 200ms;-webkit-animation-delay: 400ms;}
+.footer .music .play-btn:hover i{
+    background-color: #00ff00;
+}
+.footer .music .next-btn{padding:0 10px;height: 100%;display: flex;align-items: center;cursor:pointer;transition: all 200ms;}
+.footer .music .next-btn:hover div{
+    border-left: solid 8px #00ff00;
+}
+.footer .music .next-btn>div{
+    box-shadow: 0 0 2px #000000;
+    box-sizing: border-box;border:solid 4px transparent;border-left: solid 8px #fff;
+}
+.footer .music .next-btn>div:nth-child(2){margin-left: -8px;}
+.footer .music .music-name{font-size: 12px; color: #888;}
 .mask{
     background-color: #222;
     position: fixed;

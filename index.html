@@ -24,10 +24,10 @@
             <ul id="ship-type-ul">
                 <li>初始化</li>
                 <li>驶离星区</li>
-                <li>常规推进已准备就绪</li>
-                <li>航行中</li>
-                <li>曲率引擎已准备就绪</li>
-                <li>跃迁中</li>
+                <li>可以开始常规推进</li>
+                <li>匀速航行</li>
+                <li>曲率引擎准备就绪</li>
+                <li>跃迁 4l.y.</li>
             </ul>
         </div>
         <div class="speed"><span id="speed">0</span> km/h</div>
@@ -40,8 +40,23 @@
         <div id="control-remind" class="remind">您现在可以自由移动视角</div>
     </div>
     <div class="footer">
+        <div class="music">
+            <div id="play-btn" class="play-btn">
+                <i class="animePlay"></i>
+                <i class="animePlay"></i>
+                <i class="animePlay"></i>
+                <i class="animePlay"></i>
+                <i class="animePlay"></i>
+            </div>
+            <div id="next-btn" class="next-btn">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="music-name" class="music-name">Fearless</div>
+        </div>
         <div class="copyright">copyright © E.T.0 <a href="https://blog.isluo.com" target="_blank">isluo.com</a> 2018</div>
     </div>
+    <audio id="audio" src="libs/music/0.mp3" preload="preload"></audio>
     <script src="libs/jquery-3.3.1.min.js"></script>
     <!--<script src="libs/three-93.min.js"></script>-->
     <script src="https://cdn.bootcss.com/three.js/92/three.min.js"></script>

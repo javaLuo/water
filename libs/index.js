@@ -7,7 +7,9 @@ let animeObj = {
     star_speed: -0.1, // 低速星空速度
     star_speed2: 10, // 高速星空速度
 };
-const speedDom = document.getElementById('speed');
+const speedDom = document.getElementById('speed'); // 显示速度的DOM，多次要用
+let musicPlaying = false; // 音乐是否正在播放中
+let musicNum = 0;   // 当前播放的哪一首歌曲
 
 /** THREE相关参数 **/
 let scene; // 场景
@@ -256,7 +258,7 @@ function initTunne(){
         transparent: true,
         alphaMap: tunnel_texture,
         color: 0x3333aa,
-        opacity: 0.01,
+        opacity: 0.1,
     });
 
     tunnel = new THREE.Mesh(tunnel_geometry, tunnel_material);
@@ -552,10 +554,10 @@ function animate(){
             tunnel.material.opacity = 1;
             setTimeout(function(){
                 showType = 5;
-                console.log("进入5");
-               // composer.passes.splice(1);
                 glitchPass.renderToScreen = false;
-            }, 300);
+                $("#ship-type-ul").css("transform", "translateY(-100px)");
+                speedRipple();
+            }, 400);
         }
         skybox.position.x -= 2;
         skybox.scale.x += 2;
@@ -585,6 +587,12 @@ function animate(){
     }
 }
 
+// 速度脉动
+function speedRipple() {
+    animeObj.shipSpeed = animeObj.shipSpeed > 1079252848.7 ? 1079252848.7 : 1079252848.8;
+    speedDom.innerText = animeObj.shipSpeed.toFixed(2);
+    setTimeout(speedRipple, Math.random()*400 + 100);
+}
 // 基本运动
 function animate_basic(){
     line_group.rotation.x += 0.01;
@@ -680,7 +688,6 @@ function animate_rayhover(){
             hoverToDo = true;
             noHoverToDo = true;
             nowNum = 0;
-            console.log(cone_group.children);
         }
         if(hoverToDo) {
             nowNum += 0.15;
@@ -802,6 +809,18 @@ function init(){
     window.addEventListener('mousemove', onMouseMove, false);
     labelRenderer.render( scene, camera );
 
+    // 绑定音频事件
+    $("#play-btn").on("click touchend", function(){
+        if(musicPlaying){
+            musicPlaying = false;
+            pause();
+        } else {
+            musicPlaying = true;
+            play();
+        }
+    });
+    $("#next-btn").on("click touchend", next);
+    $("#audio").on("ended", next);
     setTimeout(()=> {title2d = $("#title2d");label2d = $("#label2")});
 
     initShow(); // 开始了
@@ -824,7 +843,7 @@ function initWords() {
 
 // 初始化不同阶段的出现逻辑
 function initShow(){
-    $("#ship-info-btn").on('click', function(){
+    $("#ship-info-btn").on('click touchend', function(){
         var shipInfoBtn = $(this);
         if(!shipInfoBtn.hasClass('show')){
             return;
@@ -850,11 +869,12 @@ function show1(){
             $("#ship-type-ul").css("transform", "translateY(-40px)");
             $("#ship-info-btn .btn-word").text("起航");
             $("#ship-info-btn").data("type", 2).addClass("show");
-        }, 4000);
+        }, 2000);
     });
     $("#title-box").addClass("show");
     $("#logo").addClass("show");
     $("#ship-type-ul").css("transform", "translateY(-20px)");
+    play();
 }
 
 // 常规推进
@@ -906,4 +926,48 @@ function show3(){
     tunnel.visible = true;
    // skybox.material.transparent = true;
    // composer.addPass( outlinePass );
+    anime({
+        targets: animeObj,
+        shipSpeed: [
+            {value: 9000000, duration: 12200},
+            {value: 1079252848, duration: 1000}
+        ], // 1079252848.8
+        round: 1,
+        easing: 'linear',
+        update: function() {
+            speedDom.innerText = animeObj.shipSpeed.toFixed(2)
+        }
+    });
+}
+
+/** 音频控制相关 **/
+const musics = [
+    { url: "libs/music/0.mp3", title: 'Fearless'},
+    {url: "libs/music/1.mp3", title: 'Qiu Mansion'},
+];
+
+function play(){
+    const audio = document.getElementById("audio");
+    musicPlaying = true;
+    $("#play-btn i").addClass("animePlay");
+    audio.play();
+}
+
+function pause(){
+    const audio = document.getElementById("audio");
+    musicPlaying = false;
+    $("#play-btn i").removeClass("animePlay");
+    audio.pause();
+}
+
+function next(){
+    const audio = document.getElementById("audio");
+    let musicNow = musicNum + 1 > musics.length - 1 ? 0 : musicNum + 1;
+    musicNum = musicNow;
+    audio.pause();
+    audio.src = musics[musicNow].url;
+    musicPlaying = true;
+    $("#play-btn i").addClass("animePlay");
+    $("#music-name").text(musics[musicNow].title);
+    audio.play();
 }
