@@ -498,9 +498,9 @@ function initAllTexturesAndImgs() {
     });
 
     cubeLoader.load([
-            "libs/imgs/skybox/posx.png","libs/imgs/skybox/negx.png",
-            "libs/imgs/skybox/posy.png","libs/imgs/skybox/negy.png",
-            "libs/imgs/skybox/posz.png","libs/imgs/skybox/negz.png"
+            "libs/imgs/skybox/posx.jpg","libs/imgs/skybox/negx.jpg",
+            "libs/imgs/skybox/posy.jpg","libs/imgs/skybox/negy.jpg",
+            "libs/imgs/skybox/posz.jpg","libs/imgs/skybox/negz.jpg"
         ],
         function(texture){
             skybox_texture = texture;
@@ -821,8 +821,51 @@ function init(){
     });
     $("#next-btn").on("click touchend", next);
     $("#audio").on("ended", next);
-    setTimeout(()=> {title2d = $("#title2d");label2d = $("#label2")});
 
+    // 菜单事件
+    $("#menu-w").on("click touchend", function(e){
+        const $p = $("#page-w");
+        if ($p.hasClass("show")){ // 当前页已经出现了
+            $("#pages-box, #pages-box>div, #close").removeClass("show");
+        } else {
+            $("#pages-box, #close").addClass("show");
+            $("#pages-box>div").removeClass("show");
+            $p.addClass("show").scrollTop();
+
+        }
+    });
+    $("#menu-m").on("click touchend", function(e){
+        const $p = $("#page-m");
+        if ($p.hasClass("show")){ // 当前页已经出现了
+            $("#pages-box, #pages-box>div, #close").removeClass("show");
+        } else {
+            $("#pages-box, #close").addClass("show");
+            $("#pages-box>div").removeClass("show");
+            $p.addClass("show").scrollTop();
+        }
+    });
+    $("#menu-t").on("click touchend", function(e){
+        const $p = $("#page-t");
+        if ($p.hasClass("show")){ // 当前页已经出现了
+            $("#pages-box, #pages-box>div, #close").removeClass("show");
+        } else {
+            $("#pages-box, #close").addClass("show");
+            $("#pages-box>div").removeClass("show");
+            $p.addClass("show").scrollTop();
+        }
+    });
+    $("#close").on("click touchend", function(){
+        $("#pages-box, #pages-box>div, #close").removeClass("show");
+    });
+
+    $("#pages-box").on("mousemove touchmove mousewheel DOMMouseScroll", function(e){
+        e.stopPropagation();
+    });
+
+    setTimeout(function(){
+        title2d = $("#title2d");
+        label2d = $("#label2");
+    });
     initShow(); // 开始了
 
     $("#ship-info-btn").addClass("show"); // s首个按钮出现
@@ -865,15 +908,19 @@ function show1(){
     animate();
     showType = 1;
     $("#mask").fadeOut(5000, function(){
+        $("#menu").addClass("show");
         setTimeout(function(){
             $("#ship-type-ul").css("transform", "translateY(-40px)");
             $("#ship-info-btn .btn-word").text("起航");
             $("#ship-info-btn").data("type", 2).addClass("show");
+            $("#ship-info-box,#logo").css("z-index","10");
+            $("#menu li").css("transition", "all 200ms !important");
         }, 2000);
     });
-    $("#title-box").addClass("show");
-    $("#logo").addClass("show");
+    $("#title-box, #logo").addClass("show");
     $("#ship-type-ul").css("transform", "translateY(-20px)");
+    $("#speed-unit").text("km/h");
+
     play();
 }
 

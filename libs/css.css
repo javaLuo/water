@@ -3,6 +3,20 @@ body{
     margin: 0;
     letter-spacing: 1px;
     font-family: "ATC Overlook", arial, sans-serif;
+    overflow: hidden;
+}
+/* 美化滚动条 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+
+    background-color: transparent;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 6px;
 }
 canvas{
     display: block;
@@ -16,6 +30,10 @@ a{
 }
 a:hover{
     color:#A0DBF2;
+}
+img{
+    outline: none;
+    border: none;
 }
 .title2d{
     position: relative;
@@ -101,8 +119,8 @@ a:hover{
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: rgba(0,0,0, .7);
-    z-index: 9;
+    background-color: rgba(0,0,0, .8);
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -154,7 +172,7 @@ a:hover{
     left:0;
     width:100%;
     height: 100%;
-    z-index: 12;
+    z-index: 99;
 }
 /** 中间信息窗体 **/
 .ship-info-box{
@@ -163,7 +181,7 @@ a:hover{
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    z-index: 20;
+    z-index: 100;
     padding: 20px;
     color: #ccc;
     font-size: 12px;
@@ -180,6 +198,7 @@ a:hover{
     color: #00ff00;
 }
 .ship-info-box .speed span{color: #fff;}
+.ship-info-box .speed i{font-style: normal;}
 .ship-info-box .btn{position: relative;width: 150px;height:30px;line-height:30px;text-align: center;margin-top: 10px;}
 .ship-info-box .btn .btn-back{transition: all 300ms; position: absolute;top:0;left:0;width: 100%;height: 100%;background-color: rgba(0,0,0,.3);transform: scale(1 ,0);}
 .ship-info-box .btn .btn-word{transition: all 600ms; position: absolute;top:0;left:0;width:100%;height:100%;transform:translateX(15px);color: #ccc;z-index: 2;text-align: center;opacity:0;}
@@ -214,7 +233,7 @@ a:hover{
     width: 120px;
     height: auto;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 100;
     transition: all 1000ms;
 }
 .logo.show{
@@ -286,3 +305,232 @@ a:hover{
     width: 80px;
     margin-right: 10px;
 }
+
+.menu{
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 20;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.menu li{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    transform: rotate(45deg) translateX(50px);
+    padding: 0;
+    display: block;
+    margin-bottom: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+.menu li:first-child {
+    transition: all 200ms;
+}
+.menu li:nth-child(2) {
+    transition: all 500ms;
+}
+.menu li:nth-child(3) {
+    transition: all 800ms;
+}
+.menu.show li{
+    transform: rotate(45deg) translateX(0);
+    opacity: 1;
+}
+.menu li::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 19px;
+    height: 19px;
+    border-top: solid 1px #fff;
+    border-left: solid 1px #fff;
+    transition: all 300ms;
+}
+.menu li::after{
+    content: '';
+    position: absolute;
+    bottom:0;
+    right:0;
+    width: 19px;
+    height: 19px;
+    border-bottom: solid 1px #fff;
+    border-right: solid 1px #fff;
+    transition: all 300ms;
+}
+.menu li div{
+    transform: rotate(-45deg);
+}
+.menu li:hover{
+    transform: rotate(0) !important;
+}
+.menu li:hover::before{
+    width: 5px;
+    height: 5px;
+    border-top: solid 1px #0f0;
+    border-left: solid 1px #0f0;
+}
+.menu li:hover::after{
+    width: 5px;
+    height: 5px;
+    border-bottom: solid 1px #0f0;
+    border-right: solid 1px #0f0;
+}
+.menu li:hover div{
+    transform: rotate(0);
+}
+
+.pages-box{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: calc(100% - 25px);
+    box-sizing: border-box;
+    z-index: 18;
+    background-color: rgba(0,0,0, .8);
+    overflow: hidden;
+    opacity: 0;
+    width: 50vw;
+    transform: translateX(45vw);
+    transition: all 300ms;
+    color: #fff;
+}
+@keyframes lineMove {
+    0% {transform: translateY(0)}
+    100% {transform: translateY(-300vh)}
+}
+@-webkit-keyframes lineMove {
+    0% {-webkit-transform: translateY(0)}
+    100% {-webkit-transform: translateY(-300vh)}
+}
+.pages-box::after{
+    content: "";
+    position: absolute;
+    bottom: -60vh;
+    left: 0;
+    height: 60vh;
+    width: 1px;
+    background: linear-gradient(transparent, rgb(30, 40, 150), transparent);
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+}
+.pages-box.show{
+    transform: translateX(0);
+    opacity: 1;
+}
+.pages-box.show::after{
+    animation-name: lineMove;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+}
+.pages-box>div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 20px 60px 20px 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 0;
+    transition: all 300ms;
+    transform: translateX(25px);
+    z-index: 18;
+}
+.pages-box>div.show{
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 20;
+}
+.pages-box .page-title-box .t{
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #ccc;
+}
+.pages-box .page-title-box .t i{
+    color: #fff;
+}
+.pages-box .page-title-box .i{
+    font-style: italic;
+    color: #888;
+    font-size: 12px;
+    margin-top: 10px;
+    opacity: .8;
+}
+.pages-box>div p{
+    color: #d0d0d0;
+    font-size: 12px;
+    text-align: justify;
+    text-indent: 2em;
+}
+.pages-box>div img{
+    border-radius: 6px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    border: solid 1px rgba(255,255,255,.2)
+}
+.pages-box .info-1{
+    display: flex;
+    align-items: flex-start;
+    color: #d0d0d0;
+    font-size: 12px;
+    text-align: justify;
+    margin-top: 40px;
+}
+.pages-box .info-1 img{
+    display: block;
+    width: 30%;
+    height: auto;
+    margin-left: 20px;
+}
+.pages-box .info-1 .info-t{
+    font-size: 14px;
+    color: #fff;
+}
+.pages-box .tt{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.pages-box .f{
+    font-size: 12px;
+    margin-top: 60px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding-bottom: 20px;
+}
+.close{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: solid 1px #fff;
+    background-color: #f00;
+    bottom: 35px;
+    left: 50%;
+    margin-left: -10px;
+    cursor: pointer;
+    transform: translateY(50px) rotate(45deg);
+    z-index: 22;
+    opacity: 0;
+    transition: all 300ms;
+}
+.close.show{
+    transform: rotate(45deg) translateY(0);
+    opacity: 1;
+}
+.close:hover{
+    transform: rotate(135deg) translateY(0);
+}
+.close div{position: absolute;background-color: #fff;}
+.close div:first-child{top: 10px;left: 5px;width: 10px;height: 1px;}
+.close div:nth-child(2){top: 5px;left: 10px;width: 1px;height: 10px;}
