@@ -807,10 +807,11 @@ function init(){
     // 浏览器改变事件
     window.addEventListener('resize', onResize, false);
     window.addEventListener('mousemove', onMouseMove, false);
+    FastClick.attach(document.body);
     labelRenderer.render( scene, camera );
 
     // 绑定音频事件
-    $("#play-btn").on("click touchend", function(){
+    $("#play-btn").on("click", function(){
         if(musicPlaying){
             musicPlaying = false;
             pause();
@@ -819,12 +820,13 @@ function init(){
             play();
         }
     });
-    $("#next-btn").on("click touchend", next);
+    $("#next-btn").on("click", next);
     $("#audio").on("ended", next);
 
     // 菜单事件
-    $("#menu-w").on("click touchend", function(e){
+    $("#menu-w").on("click", function(e){
         const $p = $("#page-w");
+        console.log("TOUCH");
         if ($p.hasClass("show")){ // 当前页已经出现了
             $("#pages-box, #pages-box>div, #close").removeClass("show");
         } else {
@@ -834,7 +836,7 @@ function init(){
 
         }
     });
-    $("#menu-m").on("click touchend", function(e){
+    $("#menu-m").on("click", function(e){
         const $p = $("#page-m");
         if ($p.hasClass("show")){ // 当前页已经出现了
             $("#pages-box, #pages-box>div, #close").removeClass("show");
@@ -844,7 +846,7 @@ function init(){
             $p.addClass("show").scrollTop();
         }
     });
-    $("#menu-t").on("click touchend", function(e){
+    $("#menu-t").on("click", function(e){
         const $p = $("#page-t");
         if ($p.hasClass("show")){ // 当前页已经出现了
             $("#pages-box, #pages-box>div, #close").removeClass("show");
@@ -854,7 +856,7 @@ function init(){
             $p.addClass("show").scrollTop();
         }
     });
-    $("#close").on("click touchend", function(){
+    $("#close").on("click", function(){
         $("#pages-box, #pages-box>div, #close").removeClass("show");
     });
 
@@ -886,7 +888,7 @@ function initWords() {
 
 // 初始化不同阶段的出现逻辑
 function initShow(){
-    $("#ship-info-btn").on('click touchend', function(){
+    $("#ship-info-btn").on('click', function(){
         var shipInfoBtn = $(this);
         if(!shipInfoBtn.hasClass('show')){
             return;
