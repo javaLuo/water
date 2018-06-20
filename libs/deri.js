@@ -31,10 +31,10 @@ var Deri = {
      * 开始创建曲线
      **/
     start: function(x) {
-        var dot_x = [0,0,25,50];
-        var dot_y = [0,15,5,0];
-        var t = 0.5;  // t的初始值
-        for(var i=0;i<1000;i++){
+        const dot_x = [0,0,28,42]; // 0 0 25 42
+        const dot_y = [0,15,0,0]; // -0.4, 15, 0.1, 0
+        let t = 0.8;  // t的初始值
+        for(let i=0;i<1000;i++){
             t = t- this.NTBezierFunc(dot_x,x,t)/ this.DeltaNTBezierFunc(dot_x,x,t);
             if(this.NTBezierFunc(dot_x,x,t)<=1e-5){
                 break;

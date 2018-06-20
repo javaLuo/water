@@ -1,8 +1,19 @@
+*{
+    -webkit-overflow-scrolling: touch;			/* 允许独立滚动区域，解决IOS上的非body元素滚动条滚动时卡顿 */
+    -webkit-tap-highlight-color: transparent;	/* 覆盖IOS上用户点击连接时的默认高亮颜色 */
+    -webkit-touch-callout:none;					/* 禁用系统默认菜单，相当于禁用右键菜单 */
+    outline: none;
+}
 body{
     background-color: #000;
     margin: 0;
     letter-spacing: 1px;
     font-family: "ATC Overlook", arial, sans-serif;
+    -webkit-font-smoothing:antialiased;			/* 平滑字体 */
+    -moz-osx-font-smoothing: grayscale;			/* 平滑字体 */
+    -ms-touch-action: manipulation;				/* 允许触摸驱动的平移和拖拽缩放 */
+    touch-action: manipulation;					/* 允许触摸驱动的平移和拖拽缩放 */
+    -webkit-text-size-adjust:100%;				/* 关闭IOS横屏时，自动调整字体大小的功能 */
     overflow: hidden;
 }
 /* 美化滚动条 */
@@ -34,6 +45,14 @@ a:hover{
 img{
     outline: none;
     border: none;
+}
+.canvas-box{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 .title2d{
     position: relative;

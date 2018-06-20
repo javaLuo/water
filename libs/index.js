@@ -67,15 +67,15 @@ function init3boss(){
     renderer.setSize(window.innerWidth, window.innerHeight, true);
     renderer.setClearColor(0x000000);
     console.log("看看scene:", scene);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById("canvas-box").appendChild(renderer.domElement);
 }
 
 /** 初始化镜头控制器 **/
 function initCameraControl() {
-    cameraControls = new THREE.OrbitControls(camera);
+    cameraControls = new THREE.OrbitControls(camera, document.getElementById('canvas-box'));
     cameraControls.target.set( 0, 0, 0);
     cameraControls.maxDistance = 100;
-    cameraControls.minDistance = 50;
+    cameraControls.minDistance = 40;
     cameraControls.enabled = false; // 先禁用
     cameraControls.update();
 }
@@ -84,22 +84,23 @@ function initCameraControl() {
 function initCubeCameras(){
     cubeCamera1 = new THREE.CubeCamera(1, 2000, 256);
     cubeCamera1.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-    cubeCamera1.position.x = 8;
+    cubeCamera1.position.x = 4;
     scene.add(cubeCamera1);
     cubeCamera2 = new THREE.CubeCamera(1, 2000, 256);
     cubeCamera2.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-    cubeCamera2.position.x = 8;
+    cubeCamera2.position.x = 4;
     scene.add(cubeCamera2);
     // 通过相机的画面作为贴图
     cubeMeterial = new THREE.MeshBasicMaterial({
         envMap: cubeCamera2.renderTarget.texture,
+
     });
 }
 
 /** 创建水滴探测器Obj 以及上面的光锥**/
 function initWaterShip(){
     const points = [];
-    const lang = 50;
+    const lang = 42;
     for ( let i = 0; i < lang; i+=0.2) {
         const y = Deri.start(i);
         points.push( new THREE.Vector2(y, i) );
@@ -112,7 +113,7 @@ function initWaterShip(){
 
     cone_group = new THREE.Group();
 
-    for(let i=25; i< points.length; i+=25) {
+    for(let i=25; i< points.length - 10; i+=25) {
         const p = createCone(points[i]);
         p.plane1.scale.set(0.01,0.01,0.01);
         p.plane2.scale.set(0.01,0.01,0.01);
@@ -353,7 +354,7 @@ function initAppendage() {
     // 后 - 蓝色 - 实线 - 小圈
     line3_mesh = line1_mesh.clone();
     line3_mesh.scale.set(0.01,0.01,0.01); // 1.5,1.5,1.5
-    line3_mesh.position.x = -23; // -33
+    line3_mesh.position.x = -13; // -33
     scene.add(line3_mesh);
 
     // 前 - 红色 - 虚线 - 小圈
@@ -366,7 +367,7 @@ function initAppendage() {
     // 后 - 红色 - 虚线 - 小圈
     q5_mesh = q4_mesh.clone();
     q5_mesh.scale.set(0.01,0.01,0.01); // 1.3,1.3,1.3
-    q5_mesh.position.x = -23.5; // -33.5
+    q5_mesh.position.x = -13.5; // -33.5
     scene.add(q5_mesh);
 
     // 前 - 蓝色 - 虚线 - 中圈
@@ -429,7 +430,7 @@ function initComposer(){
     labelRenderer.setSize( window.innerWidth, window.innerHeight );
     labelRenderer.domElement.style.position = 'absolute';
     labelRenderer.domElement.style.top = 0;
-    document.body.appendChild( labelRenderer.domElement );
+    document.getElementById("canvas-box").appendChild( labelRenderer.domElement );
 
     /** 后处理 - 后期渲染器 **/
     composer = new THREE.EffectComposer( renderer );
@@ -643,7 +644,7 @@ function animate_rayhover(){
             line2_mesh.scale.set(scale, scale, scale);
         }
         // 后面小圈
-        if(line3_mesh.position.x>-33) {
+        if(line3_mesh.position.x>-23) {
             line3_mesh.position.x -= 1;
         }
         if(line3_mesh.scale.x < 1.5) {
@@ -659,7 +660,7 @@ function animate_rayhover(){
             q4_mesh.scale.set(scale, scale, scale);
         }
         // 后面红色小圈
-        if(q5_mesh.position.x > -33.5) {
+        if(q5_mesh.position.x > -23.5) {
             q5_mesh.position.x -= 1;
         }
         if(q5_mesh.scale.x < 1.5) {
@@ -738,7 +739,7 @@ function animate_rayhover(){
             line2_mesh.scale.set(scale, scale, scale);
         }
         // 后面小圈
-        if(line3_mesh.position.x<-23) {
+        if(line3_mesh.position.x<-13) {
             line3_mesh.position.x += 1;
         }
         if(line3_mesh.scale.x > 0) {
@@ -754,7 +755,7 @@ function animate_rayhover(){
             q4_mesh.scale.set(scale, scale, scale);
         }
         // 后面红色小圈
-        if(q5_mesh.position.x < -23.5) {
+        if(q5_mesh.position.x < -13.5) {
             q5_mesh.position.x += 1;
         }
         if(q5_mesh.scale.x > 0) {
@@ -860,7 +861,7 @@ function init(){
         $("#pages-box, #pages-box>div, #close").removeClass("show");
     });
 
-    $("#pages-box").on("mousemove touchmove mousewheel DOMMouseScroll", function(e){
+    $("#pages-box").on("touchmove mousewheel DOMMouseScroll", function(e){
         e.stopPropagation();
     });
 
