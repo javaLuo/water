@@ -1,4 +1,10 @@
 /** 页面逻辑相关参数 **/
+const names = [
+    {n: 'Logic', s: 10},
+    {n: 'Logic2', s: 0.01},
+    {n: 'Logic2', s: 0.05},
+    {n: 'Logic2', s: 0.01},
+];
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
 let showType = 0; // 当前在哪个阶段
@@ -790,6 +796,27 @@ function animate_rayhover(){
         }
     }
 }
+
+function initNames(){
+    names.sort((a,b)=> b.s - a.s );
+    let str = "";
+    let num = 0;
+    for(let i=0;i<names.length;i++){
+        str+= "<li><div>"+names[i].n+"</div><div>￥"+names[i].s+"</div></li>";
+        num+=names[i].s;
+    }
+
+    const fixed = 2;
+    let pos = num.toString().indexOf('.'),
+        decimal_places = num.toString().length - pos - 1,
+        _int = num * Math.pow(10, decimal_places),
+        divisor_1 = Math.pow(10, decimal_places - fixed),
+        divisor_2 = Math.pow(10, fixed);
+    num = Math.round(_int / divisor_1) / divisor_2;
+
+    $(str).appendTo($("#names"));
+    $("#sum").text(num);
+}
 /** 开始初始化 **/
 function init(){
     console.log('开始渲染');
@@ -805,6 +832,7 @@ function init(){
     initComposer(); // 初始化各后期通道
     initRaycaster(); // 初始化射线
     initWords(); // 初始化标题文字
+    initNames(); // 构造赞助者名单
     // 浏览器改变事件
     window.addEventListener('resize', onResize, false);
     window.addEventListener('mousemove', onMouseMove, false);
@@ -833,7 +861,7 @@ function init(){
         } else {
             $("#pages-box, #close").addClass("show");
             $("#pages-box>div").removeClass("show");
-            $p.addClass("show").scrollTop();
+            $p.scrollTop(0).addClass("show");
 
         }
     });

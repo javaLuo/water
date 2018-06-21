@@ -511,19 +511,104 @@ img{
     padding: 40px 0;
 }
 .pages-box .words-box .t{
-    color: #fff;
-    font-size: 14px;
-    text-align: center;
+     color: #fff;
+     font-size: 14px;
+     text-align: center;
+ }
+.pages-box .words-box .tl{
+    text-align: left;
+    margin-top: 20px;
 }
 .pages-box .words-box .i{
     color: #ccc;
     margin-top: 20px;
+}
+
+.pages-box .words-box .vcode{
+    width: 200px;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    transform: scale(1,1);
+    transition: 200ms;
+}
+.pages-box .words-box .vcode:hover{
+    transform: scale(2,2);
+}
+.pages-box .words-box .z{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    padding:0;
+    margin:20px 0 0 0;
+}
+.pages-box .words-box .z>li{
+    position: relative;
+    flex: none;
+    min-width: 20%;
+    font-size: 12px;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 5px;
+    list-style: none;
+    margin:0;
+}
+.pages-box .words-box .z>li:first-child{
+    color: #E8C98B;
+}
+.pages-box .words-box .z>li:nth-child(2){
+    color: #F5DBA2;
+}
+.pages-box .words-box .z>li:nth-child(3){
+    color: #FAE5BC;
+}
+.pages-box .words-box .z>li>div:nth-child(2){
+    color: #888;
+    font-style: italic;
 }
 .pages-box .foot-info{
     color: #aaa;
     font-style: italic;
     text-align:center;
     margin-top: 100px;
+}
+.pages-box .t-box{
+    padding: 40px 0;
+    text-align: center;
+}
+.pages-box .t-box img{
+    width: 200px;
+    height: auto;
+    border-radius: 6px;
+    border: solid 1px #888;
+    margin-bottom: 10px;
+}
+.pages-box .t-box{
+    font-size: 12px;
+    color: #aaa;
+}
+.pages-box .card{
+    display: flex;
+    align-items: center;
+}
+.pages-box .card img{
+    flex: none;
+    max-width: 80px;
+    border-radius: 100px;
+    border: solid 3px rgba(255,255,255,.8);
+    margin-right: 20px;
+}
+.pages-box .card>div{
+    flex: 1;
+    color: #888;
+    font-size: 12px;
+}
+.pages-box .card>div>div span{
+    color: #fff;
+}
+.pages-box .card>div>div:nth-child(2){
+    margin-top: 10px;
 }
 .close{
     position: fixed;
