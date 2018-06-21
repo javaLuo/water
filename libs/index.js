@@ -4,7 +4,7 @@ let loadingPercent = 0; // 当前加载进度
 let showType = 0; // 当前在哪个阶段
 let animeObj = {
     shipSpeed: 100, // 当前飞船速度，加载百分比
-    star_speed: -0.1, // 低速星空速度
+    star_speed: -0.15, // 低速星空速度
     star_speed2: 10, // 高速星空速度
 };
 const speedDom = document.getElementById('speed'); // 显示速度的DOM，多次要用
@@ -62,7 +62,7 @@ function init3boss(){
     camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1500);
     renderer = new THREE.WebGLRenderer();
 
-    camera.position.set(0,0,-30);
+    camera.position.set(-10,0,-50);
     camera.lookAt(new THREE.Vector3(0,0,0));
     renderer.setSize(window.innerWidth, window.innerHeight, true);
     renderer.setClearColor(0x000000);
