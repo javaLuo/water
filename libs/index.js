@@ -1,6 +1,6 @@
 /** 页面逻辑相关参数 **/
-const names = [
-    {n: 'Logic', s: 10},
+const users = [
+    {n: 'Logic', s: 10}
 ];
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -788,12 +788,12 @@ function animate_rayhover(){
 }
 
 function initNames(){
-    names.sort((a,b)=> b.s - a.s );
+    users.sort((a,b)=> b.s - a.s );
     let str = "";
     let num = 0;
-    for(let i=0;i<names.length;i++){
-        str+= "<li><div>"+names[i].n+"</div><div>￥"+names[i].s+"</div></li>";
-        num+=names[i].s;
+    for(let i=0;i<users.length;i++){
+        str+= "<li><div>"+users[i].n+"</div><div>￥"+users[i].s+"</div></li>";
+        num+=users[i].s;
     }
 
     const fixed = 2;

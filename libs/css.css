@@ -648,6 +648,20 @@ img{
 .close div:nth-child(2){top: 5px;left: 10px;width: 1px;height: 10px;}
 
 @media all and (max-width:768px){ /** 小于768视为移动设备 **/
+    .logo{
+        top:25vh;
+        left: 50vw;
+        width: 80px;
+        height: auto;
+        transform: translate(-50%, -50%);
+        transition: all 800ms;
+    }
+    .logo.show{
+        top: 1vw;
+        left: 1vw;
+        width: 50px;
+        transform: translate(0,0);
+    }
     .title-box{
         top: 10%;
         left:0;
@@ -676,5 +690,8 @@ img{
     .pages-box{
         width: 100vw;
         transform: translateX(100vw);
+    }
+    .pages-box .words-box .vcode:hover{
+        transform: scale(1.1,1.1);
     }
 }
