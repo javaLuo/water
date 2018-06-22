@@ -1,9 +1,6 @@
 /** 页面逻辑相关参数 **/
 const names = [
     {n: 'Logic', s: 10},
-    {n: 'Logic2', s: 0.01},
-    {n: 'Logic2', s: 0.05},
-    {n: 'Logic2', s: 0.01},
 ];
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -72,7 +69,6 @@ function init3boss(){
     camera.lookAt(new THREE.Vector3(0,0,0));
     renderer.setSize(window.innerWidth, window.innerHeight, true);
     renderer.setClearColor(0x000000);
-    console.log("看看scene:", scene);
     document.getElementById("canvas-box").appendChild(renderer.domElement);
 }
 
@@ -272,7 +268,6 @@ function initTunne(){
     tunnel.rotation.z = Math.PI/180 * 90;
     tunnel.position.x = 1200;
     tunnel.visible = false;
-    console.log('TUNNEL:', tunnel);
     scene.add(tunnel);
 }
 
@@ -292,8 +287,6 @@ function initSkyBox(){
 
     skybox = new THREE.Mesh(new THREE.BoxGeometry(2000,2000,2000),material);
     scene.add(skybox);
-    console.log("SHADER:", shader, skybox);
-
 }
 
 /** 飞船附加物 **/
@@ -448,7 +441,6 @@ function initComposer(){
     outlinePass.edgeStrength = 0.1; // 0就看不见了
     outlinePass.edgeGlow = 1;
     outlinePass.edgeThickness = 3;
-    console.log('是不是没有water_mesh', water_mesh);
     outlinePass.selectedObjects = [water_mesh];
     composer.addPass( outlinePass );
 
@@ -462,8 +454,6 @@ function initComposer(){
     glitchPass = new THREE.GlitchPass(1);
     glitchPass.renderToScreen = true;
     glitchPass.goWild = false;
-    // composer.addPass( glitchPass );
-    console.log('后期的：', composer);
 }
 
 /** 初始化射线相关 **/
@@ -819,7 +809,6 @@ function initNames(){
 }
 /** 开始初始化 **/
 function init(){
-    console.log('开始渲染');
     init3boss(); // 三要素
     initCameraControl(); // 初始化镜头控制器
     initCubeCameras(); // 初始化六面体相机
@@ -855,7 +844,6 @@ function init(){
     // 菜单事件
     $("#menu-w").on("click", function(e){
         const $p = $("#page-w");
-        console.log("TOUCH");
         if ($p.hasClass("show")){ // 当前页已经出现了
             $("#pages-box, #pages-box>div, #close").removeClass("show");
         } else {
@@ -872,7 +860,7 @@ function init(){
         } else {
             $("#pages-box, #close").addClass("show");
             $("#pages-box>div").removeClass("show");
-            $p.addClass("show").scrollTop();
+            $p.scrollTop(0).addClass("show");
         }
     });
     $("#menu-t").on("click", function(e){
@@ -882,7 +870,7 @@ function init(){
         } else {
             $("#pages-box, #close").addClass("show");
             $("#pages-box>div").removeClass("show");
-            $p.addClass("show").scrollTop();
+            $p.scrollTop(0).addClass("show");
         }
     });
     $("#close").on("click", function(){

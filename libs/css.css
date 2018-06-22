@@ -584,6 +584,11 @@ img{
     border: solid 1px #888;
     margin-bottom: 10px;
 }
+.pages-box .t-box .bookall{
+    width: 100px;
+    height: auto;
+    border: none;
+}
 .pages-box .t-box{
     font-size: 12px;
     color: #aaa;
@@ -609,6 +614,12 @@ img{
 }
 .pages-box .card>div>div:nth-child(2){
     margin-top: 10px;
+}
+#page-m{
+    background-image: url("./imgs/page2back.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center bottom;
 }
 .close{
     position: fixed;
