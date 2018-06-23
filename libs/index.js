@@ -1,6 +1,9 @@
 /** 页面逻辑相关参数 **/
 const users = [
-    {n: 'Logic', s: 10}
+    {n: 'Logic', s: 10},
+    {n:'~科24~',s:0.01},
+    {n:'libs/imgs/users/niu.png', s: 1, t: 'img'},
+    {n:'moleQ', s: 1},
 ];
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -792,7 +795,8 @@ function initNames(){
     let str = "";
     let num = 0;
     for(let i=0;i<users.length;i++){
-        str+= "<li><div>"+users[i].n+"</div><div>￥"+users[i].s+"</div></li>";
+        const n = users[i].t === "img" ? '<img src="'+users[i].n+'">' : users[i].n;
+        str+= "<li><div>"+n+"</div><div>￥"+users[i].s+"</div></li>";
         num+=users[i].s;
     }
 
