@@ -31,4 +31,10 @@ https://isluo.com/work/water
 * 赞赏任一金额，你的微信昵称将显示在本网站赞助者名单中
 * 所得资金不会用于帮助任何人类
 * 所有资金将用于流浪小猫小狗和自然环境保护计划（我会通过阿里巴巴公益或腾讯公益捐出去，会附上赞助者的昵称）
-* 资金流向及查询后续会公布在下方(2018/06/22)
+* 资金流向及查询后续会公布在下方:
+
+> 2018/06/25 <a href="https://ds.alipay.com/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D10000009%26url%3D%252Fwww%252Ffeedback.htm%253FdonateId%253D2017082413435248543%2526__from__%253Dshare" target="_blank">给流浪狗狗一顿饱饭</a> (需手机上点击，将自动跳转支付宝APP，比较麻烦，不过我也截图了)
+<figure class="half">
+    <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/b.jpg">
+    <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/c.jpg">
+</figure>
