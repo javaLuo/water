@@ -554,6 +554,14 @@ img{
     list-style: none;
     margin:0;
 }
+.pages-box .words-box .z>li>div{
+    display: flex;
+    align-items: center;
+}
+.pages-box .words-box .z>li img{
+    width: 14px;
+    height: auto;
+}
 .pages-box .words-box .z>li:first-child{
     color: #E8C98B;
 }
