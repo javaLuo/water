@@ -792,7 +792,7 @@ function animate_rayhover(){
 }
 
 function initNames(){
-    users.sort((a,b)=> b.s - a.s );
+    users.sort(function(a,b){return b.s - a.s});
     let str = "";
     let num = 0;
     for(let i=0;i<users.length;i++){
