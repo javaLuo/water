@@ -5,6 +5,7 @@ const users = [
     {n:['libs/imgs/users/niu.png'], s: 1},
     {n:'moleQ', s: 1},
     {n:['西瓜丸子', 'libs/imgs/users/xigua.png'], s: 1},
+    {n:'呐-是小中',s:0.01}
 ];
 let loadingCount = 3;  // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
