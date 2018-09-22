@@ -39,4 +39,4 @@ https://isluo.com/work/water
 
 > 2018/09/22 《守护栖息地任鸟飞》支付宝公益“大自然保护”板块
 
-<img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-1.jpg">  <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-0.jpg">
+<img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-1.png">  <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-0.png">
