@@ -23,10 +23,12 @@ https://isluo.com/work/water
 * 本网站仅作为我的个人作品,如有侵权请联系我。<br/>
 * 本网站源代码可随意使用
 <br/>
+
 <div align=center>
 <img src="https://raw.githubusercontent.com/javaLuo/water/master/libs/imgs/up.jpg" width="500" />
 </div>
 <br/>
+
 * 微信扫一扫上方二维码可小额赞赏我。
 * 赞赏任一金额，你的微信昵称将显示在本网站赞助者名单中
 * 所得资金不会用于帮助任何人类
