@@ -25,7 +25,7 @@ https://isluo.com/work/water
 <br/>
 
 <div align=center>
-<img src="https://raw.githubusercontent.com/javaLuo/water/master/libs/imgs/up.jpg" width="500" />
+<img src="libs/imgs/up.jpg" width="500" />
 </div>
 <br/>
 
@@ -37,8 +37,8 @@ https://isluo.com/work/water
 
 > 2018/06/25 <a href="https://ds.alipay.com/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D10000009%26url%3D%252Fwww%252Ffeedback.htm%253FdonateId%253D2017082413435248543%2526__from__%253Dshare" target="_blank">给流浪狗狗一顿饱饭</a> (需手机上点击自动跳转支付宝，比较麻烦，不过我也截图了)
 
-<img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/b.jpg">  <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/c.jpg">
+<img src="assets/b.jpg">  <img src="assets/c.jpg">
 
 > 2018/09/22 《守护栖息地任鸟飞》支付宝公益“大自然保护”板块
 
-<img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-1.png">  <img src="https://raw.githubusercontent.com/javaLuo/water/master/assets/2-0.png">
+<img src="assets/2-1.png">  <img src="assets/2-0.png">
