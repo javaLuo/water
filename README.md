@@ -25,7 +25,7 @@ https://isluo.com/work/water
 <br/>
 
 <div align=center>
-<img src="libs/imgs/up.jpg" width="500" />
+<img src="libs/imgs/up.jpg" width="400" />
 </div>
 <br/>
 
