@@ -14,7 +14,7 @@ const users = [
   { n: ['libs/imgs/users/niu.png'], s: 1 },
   { n: 'moleQ', s: 1 },
   { n: ['西瓜丸子', 'libs/imgs/users/xigua.png'], s: 1 },
-  { n: '呐-是小中', s: 0.01 },
+  { n: '呐-是小中', s: 0.01 }
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -93,19 +93,20 @@ function initCameraControl() {
   cameraControls.maxDistance = 100;
   cameraControls.minDistance = 40;
   cameraControls.enableKeys = false;
+  cameraControls.enablePan = false;
   cameraControls.enabled = false; // 先禁用
   cameraControls.update();
 }
 
 /** 初始化两个六面体相机 为了模拟镜面做准备 **/
 function initCubeCameras() {
-  cubeCamera1 = new THREE.CubeCamera(1, 2000, 256);
+  cubeCamera1 = new THREE.CubeCamera(1, 1000, 256);
   cubeCamera1.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-  cubeCamera1.position.x = 2;
+  cubeCamera1.position.x = 0;
   scene.add(cubeCamera1);
-  cubeCamera2 = new THREE.CubeCamera(1, 2000, 256);
+  cubeCamera2 = new THREE.CubeCamera(1, 1000, 256);
   cubeCamera2.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-  cubeCamera2.position.x = 2;
+  cubeCamera2.position.x = 0;
   scene.add(cubeCamera2);
   // 通过相机的画面作为贴图
   cubeMeterial = new THREE.MeshBasicMaterial({
@@ -117,11 +118,17 @@ function initCubeCameras() {
 function initWaterShip() {
   const points = [];
   const lang = 42;
-  for (let i = 0; i < lang; i += 0.042) {
-    const y = Deri.start(i);
-    points.push(new THREE.Vector2(y, i));
+  for (let i = 0; i < lang; i += 0.005) {
+    if(i<1){
+      const y = Deri.start(i);
+      points.push(new THREE.Vector2(y, i));
+    } else if((i*1000).toFixed(2)%2){
+      const y = Deri.start(i);
+      points.push(new THREE.Vector2(y, i));
+      i+=0.03;
+    }
   }
-  console.log(points);
+
   const water_m = new THREE.LatheBufferGeometry(points, 20);
   water_mesh = new THREE.Mesh(water_m, cubeMeterial);
   water_mesh.rotation.set(0, 0, Math.PI / 2);
@@ -182,7 +189,7 @@ function makeStarTexture() {
   canvas.width = 16;
   canvas.height = 16;
   const pen = canvas.getContext('2d');
-  const gradient = pen.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2); //创建放射状渐变
+  const gradient = pen.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2);
   gradient.addColorStop(0, 'rgba(255,255,255,1)');
   gradient.addColorStop(0.2, 'rgba(0,255,255,1)');
   gradient.addColorStop(0.4, 'rgba(0,0,164,1)');
@@ -209,7 +216,7 @@ function initStarSky() {
   const geom = new THREE.Geometry();
   const range = 700; // 横向范围
   const rangex = 2000; // 纵向范围
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 8000; i++) {
     const particle = new THREE.Vector3(Math.random() * rangex - rangex / 2, Math.random() * range - range / 2, Math.random() * range - range / 2);
     geom.vertices.push(particle);
     const color = new THREE.Color(0x00ffcc);
