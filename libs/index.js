@@ -421,7 +421,7 @@ function init2dLabel() {
   const label1Div = document.createElement('div');
   label1Div.className = 'title2d';
   label1Div.id = 'title2d';
-  label1Div.innerHTML = '<div class="t">Waterdrop</div><div class="l1"></div><div class="l2"></div>';
+  label1Div.innerHTML = '<div class="t pointernone">Waterdrop</div><div class="l1"></div><div class="l2"></div>';
 
   const label1 = new THREE.CSS2DObject(label1Div);
   label1.position.set(15, 15, 0); // 将其坐标设置为原点偏上
@@ -431,7 +431,7 @@ function init2dLabel() {
   const label2Div = document.createElement('div');
   label2Div.className = 'label2';
   label2Div.id = 'label2';
-  label2Div.innerHTML = '<p>这是2.0版本的"水滴"</p><p>配置了<i>曲率驱动引擎</i>及强互作用力外壳</p><p>由半人马星座α星系朝着太阳系行进</p><p>约<i>4个地球年</i>后抵达</p><p>哈勃望远镜已能捕获其图像</p>';
+  label2Div.innerHTML = '<p class="pointernone">这是2.0版本的"水滴"</p><p>配置了<i>曲率驱动引擎</i>及强互作用力外壳</p><p>由半人马星座α星系朝着太阳系行进</p><p>约<i>4个地球年</i>后抵达</p><p>哈勃望远镜已能捕获其图像</p>';
   const label2 = new THREE.CSS2DObject(label2Div);
   label2.position.set(10, 50, 0);
   water_mesh.add(label2);
