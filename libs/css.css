@@ -396,6 +396,8 @@ img {
   left: 8%;
   transform: translateY(-50%);
   color: #fff;
+  z-index:2;
+  pointer-events: none;
 }
 .title-box .title {
   font-size: 36px;
@@ -806,6 +808,8 @@ img {
 
 .pointernone {
   pointer-events: none;
+  user-select:none;
+  -webkit-user-select: none;
 }
 @media all and (max-width: 768px) {
   /** 小于768视为移动设备 **/

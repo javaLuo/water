@@ -21,8 +21,7 @@ let loadingPercent = 0; // 当前加载进度
 let showType = 0; // 当前在哪个阶段
 let animeObj = {
   shipSpeed: 100, // 当前飞船速度，加载百分比
-  star_speed: -0.15, // 低速星空速度
-  star_speed2: 10, // 高速星空速度
+  star_speed: -0.15, // 星空速度
 };
 const speedDom = document.getElementById('speed'); // 显示速度的DOM，多次要用
 let musicPlaying = false; // 音乐是否正在播放中
@@ -565,7 +564,7 @@ function animate() {
 
   if (showType === 2) {
     TWEEN.update();
-    if (animeObj.star_speed > -3) {
+    if (animeObj.star_speed > -10) {
       animeObj.star_speed -= 0.02;
     }
   } else if (showType === 3) {
@@ -1056,7 +1055,7 @@ function show3() {
   // composer.addPass( outlinePass );
   anime({
     targets: animeObj,
-    shipSpeed: [{ value: 9000000, duration: 10000 }, { value: 1079252848, duration: 1000 }], // 1079252848.8
+    shipSpeed: [ { value: 1079252848, duration: 12000 }], // 1079252848.8
     round: 1,
     easing: 'linear',
     update: function() {
