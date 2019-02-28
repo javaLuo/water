@@ -28,11 +28,11 @@ var Deri = {
    **/
   start: function(x) {
     const dot_x = [0, 0, 28, 42]; // 0 0 25 42 / 0, 0, 28, 42
-    const dot_y = [0, 14, 0, 0]; // -0.4, 15, 0.1, 0 / 0, 15, 0, 0
+    const dot_y = [0, 14.5, 0, 0]; // -0.4, 15, 0.1, 0 / 0, 15, 0, 0
     let t = 0.8; // t的初始值
     for (let i = 0; i < 512; i++) {
       t = t - this.NTBezierFunc(dot_x, x, t) / this.DeltaNTBezierFunc(dot_x, x, t);
-      if (this.NTBezierFunc(dot_x, x, t) <= 0.000001) {
+      if (this.NTBezierFunc(dot_x, x, t) <= 0.00001) {
         break;
       }
     }

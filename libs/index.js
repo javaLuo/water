@@ -14,7 +14,8 @@ const users = [
   { n: ['libs/imgs/users/niu.png'], s: 1 },
   { n: 'moleQ', s: 1 },
   { n: ['西瓜丸子', 'libs/imgs/users/xigua.png'], s: 1 },
-  { n: '呐-是小中', s: 0.01 }
+  { n: '呐-是小中', s: 0.01 },
+  { n: '卡斯特梅的雨', s: 20 }
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -99,13 +100,13 @@ function initCameraControl() {
 
 /** 初始化两个六面体相机 为了模拟镜面做准备 **/
 function initCubeCameras() {
-  cubeCamera1 = new THREE.CubeCamera(1, 1000, 256);
+  cubeCamera1 = new THREE.CubeCamera(1, 1500, 256);
   cubeCamera1.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-  cubeCamera1.position.x = 0;
+  cubeCamera1.position.x = 1;
   scene.add(cubeCamera1);
-  cubeCamera2 = new THREE.CubeCamera(1, 1000, 256);
+  cubeCamera2 = new THREE.CubeCamera(1, 1500, 256);
   cubeCamera2.renderTarget.texture.minFilter = THREE.LinearMipMapLinearFilter;
-  cubeCamera2.position.x = 0;
+  cubeCamera2.position.x = 1;
   scene.add(cubeCamera2);
   // 通过相机的画面作为贴图
   cubeMeterial = new THREE.MeshBasicMaterial({
@@ -116,7 +117,7 @@ function initCubeCameras() {
 /** 创建水滴探测器Obj 以及上面的光锥**/
 function initWaterShip() {
   const points = [];
-  const lang = 42;
+  const lang = 41;
   for (let i = 0; i < lang; i += 0.005) {
     if(i<1){
       const y = Deri.start(i);
@@ -1018,12 +1019,14 @@ function show2() {
     })
     .onComplete(function() {
       $('#control-remind').addClass('show');
+      $("#ship-info-box").addClass("pointernone");
       cameraControls.enabled = true;
       showType = 2.5; // 表示第2阶段已完毕
       setTimeout(function() {
         $('#control-remind').removeClass('show');
       }, 5000);
       setTimeout(function() {
+        $("#ship-info-box").removeClass("pointernone");
         $('#ship-type-ul').css('transform', 'translateY(-80px)');
         $('#ship-info-btn .btn-word').text('开始星际穿梭');
         $('#ship-info-btn')
@@ -1051,6 +1054,7 @@ function show2() {
 function show3() {
   showType = 3;
   tunnel.visible = true;
+  $("#ship-info-box").addClass("pointernone");
   // skybox.material.transparent = true;
   // composer.addPass( outlinePass );
   anime({
