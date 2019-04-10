@@ -15,7 +15,9 @@ const users = [
   { n: 'moleQ', s: 1 },
   { n: ['西瓜丸子', 'libs/imgs/users/xigua.png'], s: 1 },
   { n: '呐-是小中', s: 0.01 },
-  { n: '卡斯特梅的雨', s: 20 }
+  { n: '卡斯特梅的雨', s: 20 },
+  { n: '氕氘氚', s: 1 },
+  { n: '真羽', s: 1 },
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -119,13 +121,13 @@ function initWaterShip() {
   const points = [];
   const lang = 41;
   for (let i = 0; i < lang; i += 0.005) {
-    if(i<1){
+    if (i < 1) {
       const y = Deri.start(i);
       points.push(new THREE.Vector2(y, i));
-    } else if((i*1000).toFixed(2)%2){
+    } else if ((i * 1000).toFixed(2) % 2) {
       const y = Deri.start(i);
       points.push(new THREE.Vector2(y, i));
-      i+=0.03;
+      i += 0.03;
     }
   }
 
@@ -1019,14 +1021,14 @@ function show2() {
     })
     .onComplete(function() {
       $('#control-remind').addClass('show');
-      $("#ship-info-box").addClass("pointernone");
+      $('#ship-info-box').addClass('pointernone');
       cameraControls.enabled = true;
       showType = 2.5; // 表示第2阶段已完毕
       setTimeout(function() {
         $('#control-remind').removeClass('show');
       }, 5000);
       setTimeout(function() {
-        $("#ship-info-box").removeClass("pointernone");
+        $('#ship-info-box').removeClass('pointernone');
         $('#ship-type-ul').css('transform', 'translateY(-80px)');
         $('#ship-info-btn .btn-word').text('开始星际穿梭');
         $('#ship-info-btn')
@@ -1054,12 +1056,12 @@ function show2() {
 function show3() {
   showType = 3;
   tunnel.visible = true;
-  $("#ship-info-box").addClass("pointernone");
+  $('#ship-info-box').addClass('pointernone');
   // skybox.material.transparent = true;
   // composer.addPass( outlinePass );
   anime({
     targets: animeObj,
-    shipSpeed: [ { value: 1079252848, duration: 12000 }], // 1079252848.8
+    shipSpeed: [{ value: 1079252848, duration: 12000 }], // 1079252848.8
     round: 1,
     easing: 'linear',
     update: function() {
