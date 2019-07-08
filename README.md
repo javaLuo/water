@@ -8,7 +8,7 @@
 * 页面排版 简单排了排，没有什么设计能力
 
 ### 地址
-https://isluo.com/work/water
+https://isluo.com/work/water/
 
 ### 关于《三体》
 《三体》是刘慈欣 大刘的长篇科幻小说，共3部。获得了星云奖、雨果奖等国际奖项。
