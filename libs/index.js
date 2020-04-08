@@ -218,8 +218,13 @@ function initStarSky() {
   const geom = new THREE.Geometry();
   const range = 700; // 横向范围
   const rangex = 2000; // 纵向范围
+  const offset = 25; // 补偿，为了不碰到飞船
   for (let i = 0; i < 8000; i++) {
-    const particle = new THREE.Vector3(Math.random() * rangex - rangex / 2, Math.random() * range - range / 2, Math.random() * range - range / 2);
+    let y =  Math.random() * range - range / 2;
+    let z =  Math.random() * range - range / 2;
+    y = y > 0 ? y + offset : y - offset;
+    z = z > 0 ? z + offset : z - offset;
+    const particle = new THREE.Vector3(Math.random() * rangex - rangex / 2,y, z);
     geom.vertices.push(particle);
     const color = new THREE.Color(0x00ffcc);
     geom.colors.push(color);
@@ -241,8 +246,10 @@ function initStarSky() {
   /** 定义顶点 **/
   for (let i = 0; i < 1000; i++) {
     const x = Math.random() * 3000 - 1500;
-    const y = Math.random() * 500 - 250;
-    const z = Math.random() * 500 - 250;
+    let y = Math.random() * 500 - 250;
+    let z = Math.random() * 500 - 250;
+    y = y > 0 ? y+offset : y- offset;
+    z = z > 0 ? z+offset : z-offset;
     const lang = Math.random() * 100 + 200;
     points.push(x, y, z, x + lang, y, z);
   }
@@ -999,6 +1006,7 @@ function show1() {
 }
 
 // 常规推进
+const CoordinateOrigin = new THREE.Vector3(0, 0, 0);
 function show2() {
   $('#title-box').removeClass('show');
   showType = 2;
@@ -1017,7 +1025,7 @@ function show2() {
     .onUpdate(function() {
       camera.position.x = this.x;
       camera.position.z = this.z;
-      camera.lookAt(new THREE.Vector3(0, 0, 0));
+      camera.lookAt(CoordinateOrigin);
     })
     .onComplete(function() {
       $('#control-remind').addClass('show');
