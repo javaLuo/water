@@ -331,6 +331,7 @@ img {
   height: 10px;
   position: absolute;
   transform: scale(0, 0);
+  opacity: 0;
 }
 .ship-info-box .btn .line1 {
   top: 0;
@@ -356,6 +357,7 @@ img {
 }
 .ship-info-box .btn.show .line {
   transform: scale(1, 1);
+  opacity: 1;
 }
 .ship-info-box .btn:hover .line {
   width: 30px;
