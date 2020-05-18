@@ -18,6 +18,7 @@ const users = [
   { n: '卡斯特梅的雨', s: 20 },
   { n: '氕氘氚', s: 1 },
   { n: '真羽', s: 1 },
+  { n: 'Z', s: 1 },
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
