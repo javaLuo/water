@@ -40,7 +40,7 @@
 <kbd>卡斯特梅的雨</kbd>、
 <kbd>HK(消灭人类暴政，世界属于三体)</kbd>、
 <kbd>Hodor</kbd>、
-<kbd>Alnitak(THE WARTERDROP)</kbd>、
+<kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>、
 <kbd>Logic</kbd>、
 <kbd>士大夫(大赞)</kbd>、
 <kbd>天将明(探索未知)</kbd>、
@@ -59,7 +59,7 @@
 <kbd>小张</kbd>、
 <kbd>leooo</kbd>、
 <kbd>小朋友真好吃(么么哒)</kbd>、
-<kbd>~科24~</kbd>、
+<kbd>\~科24\~</kbd>、
 <kbd>呐-是小中(66)</kbd>、
 <kbd>veer</kbd>
 <br/><br/><br/>
@@ -75,3 +75,4 @@
 > 2021/03/04 阿派流浪猫狗救助站 中国绿发会。代各位云养了哈，所有资金已用出。￥120
 
 <img src="assets/d.jpg" width="600"/>
+
