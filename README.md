@@ -38,7 +38,7 @@
 <br/><br/><br/>
 ## 赞助者名单
 <kbd>卡斯特梅的雨</kbd>、
-<kbd>HK(消灭人类暴政，世界属于三体)</kbd>、
+<kbd>HK</kbd>、
 <kbd>Hodor</kbd>、
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>、
 <kbd>Logic</kbd>、
@@ -57,6 +57,7 @@
 <kbd>浮生六记(ETO成员前来报告)</kbd>、
 <kbd>Z(Hala Madrid)</kbd>、
 <kbd>小张</kbd>、
+<kbd>Z(现实与幻想并存)</kbd>、
 <kbd>leooo</kbd>、
 <kbd>小朋友真好吃(么么哒)</kbd>、
 <kbd>\~科24\~</kbd>、
