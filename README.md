@@ -42,6 +42,7 @@
 <kbd>Hodor</kbd>&nbsp;
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>&nbsp;
 <kbd>Logic</kbd>&nbsp;
+<kbd>希望重燃.</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
 <kbd>Citrus</kbd>&nbsp;
