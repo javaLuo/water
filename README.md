@@ -8,8 +8,9 @@
 * 页面排版 简单排了排，没有什么设计能力
 
 ## 地址
-外网有点慢： https://isluo.com/work/water/
-<br/>国内： https://isluo.gitee.io/work/water/
+https://isluo.com/work/water/
+<br/>国内加载可能比较慢
+
 
 ## 关于《三体》
 《三体》是刘慈欣 大刘的长篇科幻小说，共3部。获得了星云奖、雨果奖等国际奖项。
@@ -45,6 +46,7 @@
 <kbd>希望重燃.</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
+<kbd>今天明天吃什么呢(专升本复习完善成个人笔记最好)</kbd>&nbsp;
 <kbd>Citrus</kbd>&nbsp;
 <kbd>moleQ(我又来了)</kbd>&nbsp;
 <kbd>温度℃</kbd>&nbsp;
