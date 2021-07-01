@@ -49,6 +49,7 @@ https://isluo.com/work/water/
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
 <kbd>今天明天吃什么呢(专升本复习完善成个人笔记最好)</kbd>&nbsp;
+<kbd>傅Fu(需要批发二向箔)</kbd>&nbsp;
 <kbd>Citrus</kbd>&nbsp;
 <kbd>moleQ(我又来了)</kbd>&nbsp;
 <kbd>温度℃</kbd>&nbsp;
