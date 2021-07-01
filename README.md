@@ -45,6 +45,7 @@ https://isluo.com/work/water/
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>&nbsp;
 <kbd>Logic</kbd>&nbsp;
 <kbd>希望重燃.</kbd>&nbsp;
+<kbd>CoderWangx(水滴很酷:thumbsup:)</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
 <kbd>今天明天吃什么呢(专升本复习完善成个人笔记最好)</kbd>&nbsp;
