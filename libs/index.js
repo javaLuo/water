@@ -41,6 +41,11 @@ const users = [
   { n: "今天明天吃什么呢", w: "专升本复习完善成个人笔记最好", s: 5 },
   { n: "科捷智能科技-葛晋 Momiji", s: 66.6 },
   { n: "dragon.", w: "加油鸭", s: 0.01 },
+  { n: "CoderWangx", w: "水滴很酷", s: 6.66 },
+  { n: "Doggy", w: "太牛了woc", s: 1 },
+  { n: "Mr O'G桑", s: 1 },
+  { n: "傅Fu", w: "需要批发二向箔", s: 3 },
+  { n: "我的网名十二个字不信你数", s: 5 },
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -144,18 +149,15 @@ function initCubeCameras() {
 function initWaterShip() {
   const points = [];
   const lang = 41;
-  for (let i = 0; i < lang; ) {
-    if (i < 0.4) {
+  for (let i = 0; i < lang; i += 0.005) {
+    if (i < 1) {
       const y = Deri.start(i);
       points.push(new THREE.Vector2(y, i));
-      i += 0.005;
     } else if ((i * 1000).toFixed(2) % 2) {
       const y = Deri.start(i);
       points.push(new THREE.Vector2(y, i));
-      i += 0.01;
+      i += 0.03;
     }
-    // const y = Deri.start(i);
-    // points.push(new THREE.Vector2(y, i));
   }
 
   const water_m = new THREE.LatheBufferGeometry(points, 20);
@@ -246,6 +248,7 @@ function initStarSky() {
   const range = 700; // 横向范围
   const rangex = 2000; // 纵向范围
   const offset = 15; // 补偿，为了不碰到飞船
+  const color = new THREE.Color(0x00ffcc);
   for (let i = 0; i < 8000; i++) {
     let y = Math.random() * range - range / 2;
     let z = Math.random() * range - range / 2;
@@ -257,7 +260,6 @@ function initStarSky() {
 
     const particle = new THREE.Vector3(Math.random() * rangex - rangex / 2, y, z);
     geom.vertices.push(particle);
-    const color = new THREE.Color(0x00ffcc);
     geom.colors.push(color);
   }
 
