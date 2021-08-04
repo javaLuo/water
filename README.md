@@ -8,7 +8,7 @@
 * 页面排版 简单排了排，没有什么设计能力
 
 ## 地址
-国内：https://isluo.gitee.io/work/water<br/>
+国内：https://isluo.gitee.io/work/water/<br/>
 国外：https://isluo.com/work/water/
 
 ## 关于《三体》
