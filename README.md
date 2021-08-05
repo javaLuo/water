@@ -83,7 +83,10 @@
 
 <img src="assets/2-1.png" />  <img src="assets/2-0.png" />
 
-> 2021/03/04 阿派流浪猫狗救助站 中国绿发会。代各位云养了哈，所有资金已用出。￥120
+> 2021/03/04 阿派流浪猫狗救助站 中国绿发会。￥120
 
-<img src="assets/d.jpg" width="600"/>
+<img src="assets/d.jpg" width="500"/>
 
+> 资金已全部捐出，感谢所有支持者。
+
+<img src="assets/wx.png" width="500"/>
