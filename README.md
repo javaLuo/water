@@ -87,6 +87,6 @@
 
 <img src="assets/d.jpg" width="500"/>
 
-> 资金已全部捐出，感谢所有支持者。
+> 资金已全部捐出，虽然是以我的账号捐的，但由衷感谢所有赞助者。
 
 <img src="assets/wx.png" width="500"/>
