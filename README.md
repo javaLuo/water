@@ -8,8 +8,7 @@
 * 页面排版 简单排了排，没有什么设计能力
 
 ## 地址
-国内：https://isluo.gitee.io/work/water/<br/>
-国外：https://isluo.com/work/water/
+国际：https://isluo.com/work/water/
 
 ## 关于《三体》
 《三体》是刘慈欣 大刘的长篇科幻小说，共3部。获得了星云奖、雨果奖等国际奖项。
@@ -44,6 +43,7 @@
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>&nbsp;
 <kbd>Logic</kbd>&nbsp;
 <kbd>希望重燃.</kbd>&nbsp;
+<kbd>岁寒(:white_square_button:)</kbd>&nbsp;
 <kbd>CoderWangx(水滴很酷:thumbsup:)</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
