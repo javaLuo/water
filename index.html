@@ -62,7 +62,7 @@
         <img class="logo-img" src="libs/imgs/icon-water.png" alt="waterdrop" />
         <div class="words-box">
           <div class="t">水滴</div>
-          <div class="i">由三体文明制造的小型空间穿梭机，因其外形与水滴相似所以人类称其为水滴。全长约3.5米，表面是极其光滑的全反射镜面，亦能反射全部电磁波。银河系在它的表面映成一片流畅的光纹，使得这滴水银看上去纯洁而唯美。它的液滴外形是那么栩栩如生，以至于观察者有时真以为它就是液态的，根本不可能有内部机械结构。</div>
+          <div class="i">由三体文明制造的小型空间穿梭机，因其外形与水滴相似而得名。全长3.5米，表面呈绝对光滑的全反射镜面。银河系在它的表面映成一片流畅的光纹，使得这滴水银看上去纯洁而唯美，它的液滴外形是那么栩栩如生，以至于观察者误以为它没有内部结构。</div>
         </div>
         <img class="illustration" src="libs/imgs/water2.jpg" alt="waterdrop" />
         <div class="words-box">
@@ -72,7 +72,7 @@
         <div class="words-box">
           <div class="t">曲率驱动</div>
           <div class="i">
-            1994年，墨西哥物理学家明戈·阿尔库贝利（Miguel Alcubierre）首次提出了现实生活中曲率驱动的概念。他所设计的曲率驱动概念包括一个足球形状的飞船，其周围是一圈大型的环状结构。科学解释是宇宙空间并不平坦而是存在曲率。
+            指一种理论上的推进系统（theoretical propulsion system），能让航天器以光速飞行。宇宙的空间并不平坦，如果把宇宙的整体想象为一张大膜，这张膜的表面是弧形的，整张膜甚至可能是一个封闭的肥皂泡。
             <p />
             这种技术可用于制造光速飞船，使星际旅行成为可能。<br />
           </div>
@@ -124,7 +124,7 @@
         <div class="words-box">
           <div class="t">三体问题</div>
           <div class="i">
-            三体是天体力学名词，指的是由三个质点及其相互引力作用组成的力学关系。主要是指三颗质量相似的恒星，在它们所组成的独立天体系统中，三颗恒星的运动轨迹找不到任何规律。
+            三体是天体力学名词，由三个质点和引力作用组成的力学关系，主要是指三颗质量相似的恒星在它们所组成的独立天体系统中，这三颗恒星的运动轨迹找不到任何规律。
             <p />
             在一般三体问题中，每一个天体在其他两个天体的万有引力作用下的运动方程都可以表示成3个二阶的常微分方程，或6个一阶的常微分方程。因此，一般三体问题的运动方程为十八阶方程，必须得到18个积分才能得到完全解。然而，现阶段还只能得到三体问题的10个初积分，还远不能解决三体问题。
           </div>
@@ -179,7 +179,7 @@
       </div>
       <div class="copyright">
         copyright © E.T.0
-        <a href="https://blog.isluo.com" target="_blank">isluo.com</a> 2018 - 2021
+        <a href="https://blog.isluo.com" target="_blank">blog.isluo.com</a> 2018 - 2021
       </div>
     </div>
     <audio id="audio" src="libs/music/0.mp3" preload="preload"></audio>
@@ -187,36 +187,32 @@
     <script src="libs/fastclick.js"></script>
     <script src="libs/three.min.js"></script>
 
-    <script src="libs/three/OrbitControls.js"></script>
     <!-- 相机控制 -->
-    <script src="libs/three/Reflector.js"></script>
+    <script src="libs/three/OrbitControls.js"></script>
     <!-- 镜面材质 -->
-    <script src="libs/three/CSS2DRenderer.js"></script>
+    <script src="libs/three/Reflector.js"></script>
     <!-- 2D铭牌 -->
-
-    <script src="libs/three/EffectComposer.js"></script>
+    <script src="libs/three/CSS2DRenderer.js"></script>
     <!-- 后期效果构建者 -->
-    <script src="libs/three/RenderPass.js"></script>
+    <script src="libs/three/EffectComposer.js"></script>
     <!-- 后期渲染器 -->
-    <script src="libs/three/ShaderPass.js"></script>
+    <script src="libs/three/RenderPass.js"></script>
     <!-- 着色器构造器 抗锯齿着色器需要这个实例化 -->
-
-    <script src="libs/three/CopyShader.js"></script>
+    <script src="libs/three/ShaderPass.js"></script>
     <!-- 全屏4色着色器 EffectComposer后期处理器依赖 -->
-    <script src="libs/three/FXAAShader.js"></script>
+    <script src="libs/three/CopyShader.js"></script>
     <!-- 抗锯齿着色器 必须要，不然后期渲染器什么都渲染不出来-->
-
-    <script src="libs/three/OutlinePass.js"></script>
+    <script src="libs/three/FXAAShader.js"></script>
     <!-- 外边框后期特效 -->
-    <script src="libs/three/GlitchPass.js"></script>
+    <script src="libs/three/OutlinePass.js"></script>
     <!-- 屏幕信号抖动后期特效 -->
-    <script src="libs/three/DigitalGlitch.js"></script>
+    <script src="libs/three/GlitchPass.js"></script>
     <!-- RGB移位着色器 屏幕信号抖动依赖的shader -->
-
-    <script src="libs/three/THREE.MeshLine.js"></script>
+    <script src="libs/three/DigitalGlitch.js"></script>
     <!-- 线条插件 -->
-    <script src="libs/deri.js"></script>
+    <script src="libs/three/THREE.MeshLine.js"></script>
     <!-- 求导算曲线 -->
+    <script src="libs/deri.js"></script>
 
     <script src="libs/tween.min.js"></script>
     <script src="libs/anime.min.js"></script>
