@@ -38,6 +38,7 @@
 ## 赞助者名单
 <kbd>科捷智能科技-葛晋 Momiji</kbd>&nbsp;
 <kbd>卡斯特梅的雨</kbd>&nbsp;
+<kbd>T-800</kbd>&nbsp;
 <kbd>HK</kbd>&nbsp;
 <kbd>Hodor</kbd>&nbsp;
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>&nbsp;
