@@ -46,6 +46,7 @@
 <kbd>希望重燃.</kbd>&nbsp;
 <kbd>岁寒(:white_square_button:)</kbd>&nbsp;
 <kbd>CoderWangx(水滴很酷:thumbsup:)</kbd>&nbsp;
+<kbd>欢乐正前方(加油！)</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
 <kbd>天将明(探索未知)</kbd>&nbsp;
 <kbd>今天明天吃什么呢(专升本复习完善成个人笔记最好)</kbd>&nbsp;
