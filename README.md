@@ -52,6 +52,7 @@
 <kbd>岁寒(:white_square_button:)</kbd>&nbsp;
 <kbd>Rose Dry Leaf Gas(我们是同志了)</kbd>&nbsp;
 <kbd>风(支持！)</kbd>&nbsp;
+<kbd>Asphyxia.(朝歌还会远吗？)</kbd>&nbsp;
 <kbd>CoderWangx(水滴很酷:thumbsup:)</kbd>&nbsp;
 <kbd>欢乐正前方(加油！)</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
