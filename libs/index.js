@@ -46,6 +46,19 @@ const users = [
   { n: "Mr O'G桑", s: 1 },
   { n: "傅Fu", w: "需要批发二向箔", s: 3 },
   { n: "我的网名十二个字不信你数", s: 5 },
+  { n: "把海弄干的鱼", s: 5 },
+  { n: "岁寒", s: 10, w: " " },
+  { n: "青城山下㇏", s: 0.01, w: "冲鸭！孟照森！" },
+  { n: "T-800", s: 20 },
+  { n: "Roland", s: 1, w: "消灭人类暴政，世界属于三体！" },
+  { n: "欢乐正前方", s: 6.66, w: "加油！" },
+  { n: "Rose Dry Leaf Gas", s: 10, w: "我们是同志了" },
+  { n: "邶陂以北", s: 0.1, w: "真就这些，不多，世界属于三体，跃迁中" },
+  { n: "王", s: 2 },
+  { n: "23:33", s: 1, w: "太酷了" },
+  { n: "吴", s: 2, w: "消灭人类暴政，世界属于三体" },
+  { n: "风", s: 10, w: "支持！" },
+  { n: "Asphyxia.", s: 10, w: "朝歌还会远吗？" },
 ];
 let loadingCount = 3; // 总共有多少资源需要加载
 let loadingPercent = 0; // 当前加载进度
@@ -1046,6 +1059,7 @@ function initWords() {
     $i[i].style.transitionDelay = trans;
   }
 }
+
 // 初始化不同阶段的出现逻辑
 function initShow() {
   $("#ship-info-btn").on("click", function () {
