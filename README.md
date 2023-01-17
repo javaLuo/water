@@ -41,6 +41,7 @@
 
 ## 赞助者名单
 
+<kbd>滴滴香小单(水滴计划由蓝色空间号独家赞助)</kbd>&nbsp;
 <kbd>科捷智能科技-葛晋 Momiji</kbd>&nbsp;
 <kbd>卡斯特梅的雨</kbd>&nbsp;
 <kbd>T-800</kbd>&nbsp;
