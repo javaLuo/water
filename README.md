@@ -47,12 +47,15 @@
 <kbd>HK</kbd>&nbsp;
 <kbd>Hodor</kbd>&nbsp;
 <kbd><a href="http://www.sci-fifans.net" target="_blank" rel="noopener">Alnitak(THE WARTERDROP)</a></kbd>&nbsp;
+<kbd>佚名</kbd>&nbsp;
 <kbd>Logic</kbd>&nbsp;
 <kbd>希望重燃.</kbd>&nbsp;
 <kbd>岁寒(:white_square_button:)</kbd>&nbsp;
 <kbd>Rose Dry Leaf Gas(我们是同志了)</kbd>&nbsp;
 <kbd>风(支持！)</kbd>&nbsp;
 <kbd>Asphyxia.(朝歌还会远吗？)</kbd>&nbsp;
+<kbd>小灰和小白的铲屎官(牛牛牛罗老师)</kbd>&nbsp;
+<kbd>朱昀栎</kbd>&nbsp;
 <kbd>CoderWangx(水滴很酷:thumbsup:)</kbd>&nbsp;
 <kbd>欢乐正前方(加油！)</kbd>&nbsp;
 <kbd>士大夫(大赞)</kbd>&nbsp;
@@ -81,6 +84,7 @@
 <kbd>Mr O'G 桑</kbd>&nbsp;
 <kbd>Roland(消灭人类暴政，世界属于三体！)</kbd>&nbsp;
 <kbd>23:33(太酷了)</kbd>&nbsp;
+<kbd>care(鑫哥，你真棒)</kbd>&nbsp;
 <kbd>leooo</kbd>&nbsp;
 <kbd>小朋友真好吃(么么哒)</kbd>&nbsp;
 <kbd>邶陂以北(真就这些，不多，世界属于三体，跃迁中)</kbd>&nbsp;
