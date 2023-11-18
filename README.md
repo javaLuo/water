@@ -97,6 +97,7 @@
 <kbd>veer</kbd>&nbsp;
 <kbd>dragon.(加油鸭)</kbd>&nbsp;
 <kbd>青城山下㇏(冲鸭！孟照森！)</kbd>&nbsp;
+<kbd>Thel'Vadamee(消灭人类暴政，世界属于三体！)</kbd>&nbsp;
 
 
 <br/><br/><br/>
